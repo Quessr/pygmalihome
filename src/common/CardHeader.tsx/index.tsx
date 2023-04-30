@@ -22,12 +22,13 @@ const CardHeader: FC<CardHeaderProps> = ({
 
 export default CardHeader;
 
-const CardHeaderContainer = styled.div`
+export const CardHeaderContainer = styled.div`
   display: flex;
   column-gap: 10px;
+  align-items: center;
 `;
 
-const AgencyImage = styled.div`
+export const AgencyImage = styled.div`
   width: 2.5rem;
   height: 2.5rem;
   background-color: skyblue;
