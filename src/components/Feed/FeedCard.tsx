@@ -3,29 +3,27 @@ import styled from "@emotion/styled";
 import Button from "@/common/Button";
 import CardHeader from "@/common/CardHeader.tsx";
 import CardLayout from "@/common/CardLayout.tsx";
-interface FeedCardProps {
-  content?: string;
-  date?: string;
-  size?: string;
-}
+import { FeedCardListProps } from "./FeedCardList";
+import { FeedCardProps } from "./FeedCardList";
 
 const FeedCard = ({
-  content = "2023년 장기미임대 수시1차 입주자모집(2023.04.07)",
-  date = "청약시작일: 2023-04-19",
-}: FeedCardProps) => {
+  title,
+}: // title,
+// date = "청약시작일: 2023-04-19",
+FeedCardProps) => {
   return (
     <CardLayout>
       {/* image & title */}
       <CardHeader />
       {/* content */}
-      <p>{content}</p>
+      <p>{title}</p>
       {/* subscription date */}
       <span
         css={css`
           font-size: 14px;
         `}
       >
-        {date}
+        {/* {date} */}
       </span>
       {/* button */}
       <div>

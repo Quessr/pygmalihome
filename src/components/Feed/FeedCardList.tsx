@@ -2,33 +2,62 @@ import { FC, ReactNode } from "react";
 import FeedCardListLayout from "./FeedCardListLayout";
 import styled from "@emotion/styled";
 import FeedCard from "./FeedCard";
+import { css } from "@emotion/react";
 
-interface FeedCardListProps {
+export interface FeedCardProps {
+  id?: string;
+  category?: string;
+  isReceiving?: boolean;
+  link?: string;
+  title?: string;
+  startDate?: string;
+  endDate?: string;
+}
+
+export interface FeedCardListProps {
   title?: string;
   icon?: ReactNode;
-  cardList?: Array<{
-    image: string;
-    title: string;
-    content: string;
-    data: string;
-  }>;
+  cardList: Array<FeedCardProps>;
 }
 
 const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
   return (
     <FeedCardListLayout>
-      {" "}
       {/* title */}
       {title && (
-        <TitleContainer>
+        <CategoryContainer>
           {icon}
           <h3>{title}</h3>
-        </TitleContainer>
+        </CategoryContainer>
       )}
       {/* cardList */}
       <CardListContainer>
-        <FeedCard />
-        <FeedCard />
+        <div
+          css={css`
+            display: flex;
+            gap: 20px;
+            padding-bottom: 10px;
+            overflow: auto;
+
+            &::-webkit-scrollbar {
+              background-color: transparent;
+              height: 8px;
+            }
+            &::-webkit-scrollbar-thumb {
+              background-color: rgba(255, 255, 255, 0.05);
+              border-radius: 5px;
+              :hover {
+                background-color: rgba(255, 255, 255, 0.1);
+              }
+            }
+          `}
+        >
+          {cardList.map((card) => (
+            <FeedCard key={card.id} title={card.title} />
+          ))}
+        </div>
+        {/* <FeedCard cardList={cardList} />
+        <FeedCard cardList={[]} /> */}
       </CardListContainer>
     </FeedCardListLayout>
   );
@@ -36,7 +65,8 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
 
 export default FeedCardList;
 
-const TitleContainer = styled.div`
+const CategoryContainer = styled.div`
+  /* position: fixed; */
   display: flex;
   border-bottom: 1px solid rgba(225, 225, 225, 0.07);
   padding: 10px 30px;
@@ -46,7 +76,8 @@ const TitleContainer = styled.div`
 
 const CardListContainer = styled.div`
   /* padding: 20px 30px; */
-  display: flex;
-  gap: 20px;
+  /* display: flex;
+  gap: 20px; */
   padding: 30px;
+  /* overflow: hidden; */
 `;

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface CardHeaderProps {
   image?: string;
@@ -14,7 +14,7 @@ const CardHeader: FC<CardHeaderProps> = ({
 }) => {
   return (
     <CardHeaderContainer>
-      <AgencyImage />
+      <AgencyImage src={image} />
       <Title color={color}>{title}</Title>
     </CardHeaderContainer>
   );
@@ -28,7 +28,7 @@ export const CardHeaderContainer = styled.div`
   align-items: center;
 `;
 
-export const AgencyImage = styled.div`
+export const AgencyImage = styled.img`
   width: 2.5rem;
   height: 2.5rem;
   background-color: skyblue;
