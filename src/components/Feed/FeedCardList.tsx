@@ -17,7 +17,7 @@ export interface FeedCardProps {
 export interface FeedCardListProps {
   title?: string;
   icon?: ReactNode;
-  cardList: Array<FeedCardProps>;
+  cardList?: Array<FeedCardProps> | null;
 }
 
 const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
@@ -31,34 +31,39 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
         </CategoryContainer>
       )}
       {/* cardList */}
-      <CardListContainer>
-        <div
-          css={css`
-            display: flex;
-            gap: 20px;
-            padding-bottom: 10px;
-            overflow: auto;
 
-            &::-webkit-scrollbar {
-              background-color: transparent;
-              height: 8px;
-            }
-            &::-webkit-scrollbar-thumb {
-              background-color: rgba(255, 255, 255, 0.05);
-              border-radius: 5px;
-              :hover {
-                background-color: rgba(255, 255, 255, 0.1);
-              }
-            }
-          `}
-        >
-          {cardList.map((card) => (
-            <FeedCard key={card.id} title={card.title} />
-          ))}
-        </div>
+      <div
+        css={css`
+          padding: 30px;
+        `}
+      >
+        <CardListContainer>
+          {cardList && cardList.length !== 0 ? (
+            cardList.map(
+              (card) =>
+                card !== null && (
+                  <FeedCard
+                    key={card?.id}
+                    title={card?.title}
+                    category={card?.category}
+                    startDate={card?.startDate}
+                    link={card?.link}
+                  />
+                )
+            )
+          ) : (
+            <div
+              css={css`
+                color: #ffff;
+              `}
+            >
+              No data available
+            </div>
+          )}
+        </CardListContainer>
         {/* <FeedCard cardList={cardList} />
         <FeedCard cardList={[]} /> */}
-      </CardListContainer>
+      </div>
     </FeedCardListLayout>
   );
 };
@@ -66,7 +71,6 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
 export default FeedCardList;
 
 const CategoryContainer = styled.div`
-  /* position: fixed; */
   display: flex;
   border-bottom: 1px solid rgba(225, 225, 225, 0.07);
   padding: 10px 30px;
@@ -75,9 +79,20 @@ const CategoryContainer = styled.div`
 `;
 
 const CardListContainer = styled.div`
-  /* padding: 20px 30px; */
-  /* display: flex;
-  gap: 20px; */
-  padding: 30px;
-  /* overflow: hidden; */
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    :hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 `;

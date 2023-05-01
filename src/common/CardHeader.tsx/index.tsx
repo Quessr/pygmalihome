@@ -3,19 +3,19 @@ import { FC, ReactNode } from "react";
 
 interface CardHeaderProps {
   image?: string;
-  title?: string;
+  category?: string;
   color?: "primary" | "secondary";
 }
 
 const CardHeader: FC<CardHeaderProps> = ({
   image,
-  title = "매입임대",
+  category,
   color = "secondary",
 }) => {
   return (
     <CardHeaderContainer>
       <AgencyImage src={image} />
-      <Title color={color}>{title}</Title>
+      <Title color={color}>{category}</Title>
     </CardHeaderContainer>
   );
 };
