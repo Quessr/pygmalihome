@@ -4,11 +4,17 @@ import CardHeader from "@/common/CardHeader.tsx";
 import CardLayout from "@/common/CardLayout.tsx";
 import { FeedCardProps } from "./FeedCardList";
 
-const FeedCard = ({ title, category, startDate, link }: FeedCardProps) => {
+const FeedCard = ({
+  title,
+  type,
+  category,
+  startDate,
+  link,
+}: FeedCardProps) => {
   return (
     <CardLayout>
       {/* image & title */}
-      <CardHeader category={category} />
+      <CardHeader category={category} type={type} />
       {/* content */}
       <p>{title}</p>
       {/* subscription date */}

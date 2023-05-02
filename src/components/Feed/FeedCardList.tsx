@@ -46,6 +46,7 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
                   <FeedCard
                     key={card?.id}
                     title={card?.title}
+                    type={card?.type}
                     category={card?.category}
                     startDate={card?.startDate}
                     link={card?.link}

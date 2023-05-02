@@ -14,8 +14,13 @@ interface YoutubeListCardProps extends Pick<CardHeaderProps, "color"> {
 const YoutubeListCard: FC<YoutubeListCardProps> = ({ youtubeInfo }) => {
   return (
     <YoutubeCardContainer>
-      <YoutubeThumbnail src={youtubeInfo?.thumbnail} />
-      <Title>{youtubeInfo && youtubeInfo.name}</Title>
+      <a href={youtubeInfo?.url} target="_blank">
+        <YoutubeThumbnail src={youtubeInfo?.thumbnail} />
+      </a>
+
+      <a href={youtubeInfo?.url} target="_blank">
+        <Title>{youtubeInfo && youtubeInfo.name}</Title>
+      </a>
     </YoutubeCardContainer>
   );
 };
