@@ -21,7 +21,9 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
   title = "이번달 신청가능 공고 현황",
   thisMonthNoticesCount,
 }) => {
-  const thisMonthShNoticesCount = 0;
+  const thisMonthShNoticesCount = thisMonthNoticesCount?.find(
+    (item) => item.type === "sh"
+  )?.count;
   const thisMonthLhNoticesCount = thisMonthNoticesCount?.find(
     (item) => item.type === "lh"
   )?.count;
