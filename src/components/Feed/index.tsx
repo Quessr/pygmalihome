@@ -6,13 +6,13 @@ import ShackeBellIcon from "./ShakeBellIcon";
 import { FC } from "react";
 
 interface FeedProps {
-  subscriptionPeriodPosts?: Array<FeedCardProps> | null;
-  within2WeeksPosts?: Array<FeedCardProps> | null;
+  subscriptionPeriodNotices?: Array<FeedCardProps> | null;
+  within2WeeksNotices?: Array<FeedCardProps> | null;
 }
 
 const Feed: FC<FeedProps> = ({
-  subscriptionPeriodPosts,
-  within2WeeksPosts,
+  subscriptionPeriodNotices,
+  within2WeeksNotices,
 }) => {
   return (
     <div
@@ -25,13 +25,13 @@ const Feed: FC<FeedProps> = ({
       <FeedCardList
         icon={<AlertBellIcon />}
         title="청약기간 입니다, 지금 바로 신청하세요!"
-        cardList={subscriptionPeriodPosts}
+        cardList={subscriptionPeriodNotices}
       />
 
       <FeedCardList
         icon={<ShackeBellIcon />}
         title="청약신청일까지 이주이내의 공고들 입니다!"
-        cardList={within2WeeksPosts}
+        cardList={within2WeeksNotices}
       />
       <Notification />
     </div>

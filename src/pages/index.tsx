@@ -1,4 +1,3 @@
-import Aside from "@/components/Aside";
 import Feed from "@/components/Feed";
 import Nav from "@/components/Nav";
 import { css } from "@emotion/react";
@@ -6,33 +5,56 @@ import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import { Inter } from "next/font/google";
 import { FeedCardProps } from "@/components/Feed/FeedCardList";
+import dayjs from "dayjs";
+import Aside from "@/components/Aside";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
+  const thisMonthNoticesCount = await Promise.all(
+    ["sh", "lh"].map((type) => {
+      const endOfMonth = dayjs().endOf("month");
+      return axios
+        .get(
+          "https://pygmalihome-backend.vercel.app/api/housing/subscription",
+          {
+            params: {
+              type,
+              limit: 20,
+              startDate: dayjs().format("YYYY-MM-DD"),
+              endDate: endOfMonth.format("YYYY-MM-DD"),
+            },
+          }
+        )
+        .then((res) => ({ type, count: res.data.total }));
+    })
+  );
+
   const res = await axios.get(
-    "http://192.168.0.6:5000/api/housing/subscription",
+    "https://pygmalihome-backend.vercel.app/api/housing/subscription",
     {
       params: { limit: 20 },
     }
   );
-  const subscriptionPeriodPosts: Array<FeedCardProps> | null =
+  const subscriptionPeriodNotices: Array<FeedCardProps> | null =
     res.data?.data?.filter((item: FeedCardProps) => item.isReceiving) ?? null;
-  const within2WeeksPosts: Array<FeedCardProps> | null =
+  const within2WeeksNotices: Array<FeedCardProps> | null =
     res.data?.data?.filter((item: FeedCardProps) => !item.isReceiving) ?? null;
 
   return {
     props: {
-      subscriptionPeriodPosts,
-      within2WeeksPosts,
+      subscriptionPeriodNotices,
+      within2WeeksNotices,
+      thisMonthNoticesCount,
     },
     revalidate: 10, // In seconds
   };
 }
 
 export default function Home({
-  subscriptionPeriodPosts,
-  within2WeeksPosts,
+  subscriptionPeriodNotices,
+  within2WeeksNotices,
+  thisMonthNoticesCount,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
@@ -50,11 +72,11 @@ export default function Home({
         <Nav />
         {/* feed */}
         <Feed
-          subscriptionPeriodPosts={subscriptionPeriodPosts}
-          within2WeeksPosts={within2WeeksPosts}
+          subscriptionPeriodNotices={subscriptionPeriodNotices}
+          within2WeeksNotices={within2WeeksNotices}
         />
         {/* aside */}
-        <Aside />
+        <Aside thisMonthNoticesCount={thisMonthNoticesCount} />
         {/* announcement status */}
         {/* youtube */}
       </div>

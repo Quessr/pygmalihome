@@ -1,8 +1,17 @@
 import { css } from "@emotion/react";
 import AsideStatus from "./AsideStatus";
 import AsideYoutube from "./AsideYoutube";
+import { FC } from "react";
 
-const Aside = () => {
+export interface EachNoticeCountProps {
+  type: string;
+  count: number;
+}
+export interface AsideProps {
+  thisMonthNoticesCount?: Array<EachNoticeCountProps>;
+}
+
+const Aside: FC<AsideProps> = ({ thisMonthNoticesCount }: AsideProps) => {
   return (
     <div
       css={css`
@@ -12,7 +21,7 @@ const Aside = () => {
       `}
     >
       {/* Status */}
-      <AsideStatus />
+      <AsideStatus thisMonthNoticesCount={thisMonthNoticesCount} />
       {/* Youtube */}
       <AsideYoutube />
     </div>

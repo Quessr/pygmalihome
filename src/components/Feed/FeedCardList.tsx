@@ -6,6 +6,7 @@ import { css } from "@emotion/react";
 
 export interface FeedCardProps {
   id?: string;
+  type?: string;
   category?: string;
   isReceiving?: boolean;
   link?: string;

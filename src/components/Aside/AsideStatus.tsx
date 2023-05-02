@@ -4,8 +4,11 @@ import styled from "@emotion/styled";
 import { Baloo_2 } from "@next/font/google";
 import { css } from "@emotion/react";
 import { AgencyImage, CardHeaderContainer } from "@/common/CardHeader.tsx";
+import { AsideProps } from ".";
+import { FaRegSadTear as ReactIconsSad } from "react-icons/fa";
+import dayjs from "dayjs";
 
-interface AsiedeStatusProps {
+interface AsiedeStatusProps extends AsideProps {
   title?: string;
   svg?: ReactNode;
 }
@@ -16,7 +19,12 @@ const baloo2 = Baloo_2({
 });
 const AsideStatus: FC<AsiedeStatusProps> = ({
   title = "이번달 신청가능 공고 현황",
+  thisMonthNoticesCount,
 }) => {
+  const thisMonthShNoticesCount = 0;
+  const thisMonthLhNoticesCount = thisMonthNoticesCount?.find(
+    (item) => item.type === "lh"
+  )?.count;
   return (
     <AsideLayout>
       <StyledAsideHeader>{title}</StyledAsideHeader>
@@ -26,15 +34,28 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
           gap: 14px;
         `}
       >
-        {/* LH status */}
-        <CardHeaderContainer>
-          <AgencyImage />
-          <StatusCount className={`${baloo2.className}`}>+2</StatusCount>
-        </CardHeaderContainer>
         {/* SH status */}
         <CardHeaderContainer>
           <AgencyImage />
-          <StatusCount className={`${baloo2.className}`}>+1</StatusCount>
+          {thisMonthShNoticesCount !== 0 ? (
+            <StatusCount className={`${baloo2.className}`}>
+              {`+${thisMonthShNoticesCount}`}
+            </StatusCount>
+          ) : (
+            <NoNoticeFound />
+          )}
+        </CardHeaderContainer>
+        {/* LH status */}
+        <CardHeaderContainer>
+          <AgencyImage />
+          {thisMonthLhNoticesCount !== 0 ? (
+            <StatusCount className={`${baloo2.className}`}>
+              {" "}
+              {`+${thisMonthLhNoticesCount}`}
+            </StatusCount>
+          ) : (
+            <NoNoticeFound />
+          )}
         </CardHeaderContainer>
       </div>
     </AsideLayout>
@@ -52,4 +73,10 @@ const StatusCount = styled.span`
   font-weight: 500;
   color: #29a19c;
   font-size: 45px;
+`;
+
+const NoNoticeFound = styled(ReactIconsSad)`
+  width: 40px;
+  height: 40px;
+  color: #29a19c;
 `;
