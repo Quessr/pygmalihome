@@ -1,7 +1,8 @@
+import { EachYoutubeProps } from "@/components/Aside";
 import styled from "@emotion/styled";
 import { FC, ReactNode } from "react";
 
-interface CardHeaderProps {
+export interface CardHeaderProps {
   image?: string;
   category?: string;
   color?: "primary" | "secondary";
@@ -14,8 +15,8 @@ const CardHeader: FC<CardHeaderProps> = ({
 }) => {
   return (
     <CardHeaderContainer>
-      <AgencyImage src={image} />
-      <Title color={color}>{category}</Title>
+      <AgencyImage src={""} />
+      <Title color={color}>{category && category}</Title>
     </CardHeaderContainer>
   );
 };
@@ -35,7 +36,7 @@ export const AgencyImage = styled.img`
   border-radius: 7.5rem;
 `;
 
-const Title = styled.h3<Pick<CardHeaderProps, "color">>`
+export const Title = styled.h3<Pick<CardHeaderProps, "color">>`
   color: ${(props) => (props.color === "primary" ? "#29A19C" : "#ffff")};
   display: flex;
   align-items: center;

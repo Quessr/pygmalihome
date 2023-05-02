@@ -1,25 +1,34 @@
 import CardHeader from "@/common/CardHeader.tsx";
 import AsideLayout from "./AsideLayout";
 import { StyledAsideHeader } from "./AsideStatus";
-import { css } from "@emotion/react";
+import { AsideProps } from ".";
+import { FC } from "react";
+import styled from "@emotion/styled";
+import YoutubeListCard from "./YouteListCard";
 
-const AsideYoutube = () => {
+export type AsideYoutubeProps = Pick<AsideProps, "youtubeList">;
+
+const AsideYoutube: FC<AsideYoutubeProps> = ({ youtubeList }) => {
   return (
     <AsideLayout>
+      {/* Header */}
       <StyledAsideHeader>Youtube</StyledAsideHeader>
-      <div
-        css={css`
-          display: grid;
-          gap: 12px;
-          margin-top: 12px;
-        `}
-      >
-        <CardHeader title="LH 임대 알리미" />
-        <CardHeader title="아영이네 행복주택" />
-        <CardHeader title="LH 집소식" />
-      </div>
+
+      {/* Body */}
+      <StyledAsideYoutubeBody>
+        {youtubeList &&
+          youtubeList.map((youtubeInfo) => (
+            <YoutubeListCard key={youtubeInfo.id} youtubeInfo={youtubeInfo} />
+          ))}
+      </StyledAsideYoutubeBody>
     </AsideLayout>
   );
 };
 
 export default AsideYoutube;
+
+const StyledAsideYoutubeBody = styled.div`
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+`;

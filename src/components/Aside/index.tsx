@@ -7,11 +7,22 @@ export interface EachNoticeCountProps {
   type: string;
   count: number;
 }
+
+export interface EachYoutubeProps {
+  id?: string;
+  name?: string;
+  thumbnail?: string;
+  url?: string;
+}
 export interface AsideProps {
   thisMonthNoticesCount?: Array<EachNoticeCountProps>;
+  youtubeList?: Array<EachYoutubeProps>;
 }
 
-const Aside: FC<AsideProps> = ({ thisMonthNoticesCount }: AsideProps) => {
+const Aside: FC<AsideProps> = ({
+  thisMonthNoticesCount,
+  youtubeList,
+}: AsideProps) => {
   return (
     <div
       css={css`
@@ -23,7 +34,7 @@ const Aside: FC<AsideProps> = ({ thisMonthNoticesCount }: AsideProps) => {
       {/* Status */}
       <AsideStatus thisMonthNoticesCount={thisMonthNoticesCount} />
       {/* Youtube */}
-      <AsideYoutube />
+      <AsideYoutube youtubeList={youtubeList} />
     </div>
   );
 };

@@ -41,11 +41,16 @@ export async function getStaticProps() {
   const within2WeeksNotices: Array<FeedCardProps> | null =
     res.data?.data?.filter((item: FeedCardProps) => !item.isReceiving) ?? null;
 
+  const youtubeList = await axios
+    .get("https://pygmalihome-backend.vercel.app/api/housing/youtube")
+    .then((res) => res.data);
+
   return {
     props: {
       subscriptionPeriodNotices,
       within2WeeksNotices,
       thisMonthNoticesCount,
+      youtubeList,
     },
     revalidate: 10, // In seconds
   };
@@ -55,7 +60,9 @@ export default function Home({
   subscriptionPeriodNotices,
   within2WeeksNotices,
   thisMonthNoticesCount,
+  youtubeList,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log("youtubeList", youtubeList);
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -76,7 +83,10 @@ export default function Home({
           within2WeeksNotices={within2WeeksNotices}
         />
         {/* aside */}
-        <Aside thisMonthNoticesCount={thisMonthNoticesCount} />
+        <Aside
+          thisMonthNoticesCount={thisMonthNoticesCount}
+          youtubeList={youtubeList}
+        />
         {/* announcement status */}
         {/* youtube */}
       </div>
