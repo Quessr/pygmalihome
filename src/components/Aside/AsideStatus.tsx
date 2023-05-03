@@ -3,7 +3,10 @@ import AsideLayout from "./AsideLayout";
 import styled from "@emotion/styled";
 import { Baloo_2 } from "@next/font/google";
 import { css } from "@emotion/react";
-import { AgencyImage, CardHeaderContainer } from "@/common/CardHeader.tsx";
+import {
+  AgencyImage,
+  CardHeaderContainer,
+} from "@/components/Feed/FeedCardHeader.tsx";
 import { AsideProps } from ".";
 import { FaRegSadTear as ReactIconsSad } from "react-icons/fa";
 import dayjs from "dayjs";
