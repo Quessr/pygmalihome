@@ -2,6 +2,8 @@ import { css } from "@emotion/react";
 import AsideStatus from "./AsideStatus";
 import AsideYoutube from "./AsideYoutube";
 import { FC } from "react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 export interface EachNoticeCountProps {
   type: string;
@@ -21,8 +23,14 @@ export interface AsideProps {
 
 const Aside: FC<AsideProps> = ({
   thisMonthNoticesCount,
-  youtubeList,
-}: AsideProps) => {
+}: // youtubeList,
+AsideProps) => {
+  const { data: youtubeList, isLoading } = useQuery({
+    queryKey: ["aside"],
+    queryFn: () => axios.get("/api/housing/youtube").then((res) => res.data),
+  });
+
+  console.log("youtubeData", youtubeList);
   return (
     <div
       css={css`
@@ -34,7 +42,7 @@ const Aside: FC<AsideProps> = ({
       {/* Status */}
       <AsideStatus thisMonthNoticesCount={thisMonthNoticesCount} />
       {/* Youtube */}
-      <AsideYoutube youtubeList={youtubeList} />
+      <AsideYoutube youtubeList={youtubeList} isLoading={isLoading} />
     </div>
   );
 };
