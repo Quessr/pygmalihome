@@ -16,19 +16,7 @@ const Notification: FC<NotificationProps> = ({ fullWidth }) => {
     const target = e.target as HTMLFormElement;
     const userEmail = target.useremail.value;
 
-    axios.post(
-      "https://pygmalihome-backend.vercel.app/api/notification/subscribe",
-      {}
-    );
-
-    console.log(userEmail);
-
-    //   axios.post(
-    //     "https://pygmalihome-backend.vercel.app/api/notification/subscribe",
-    //     {
-    //       data: { email: userEmail },
-    //     }
-    //   );
+    axios.post("/api/notification/subscribe", { email: userEmail });
   };
 
   return (
