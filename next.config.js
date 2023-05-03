@@ -13,6 +13,14 @@ const nextConfig = {
 
     return config;
   },
+  async rewrites() {
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://pygmalihome-backend.vercel.app/api/:path*",
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
