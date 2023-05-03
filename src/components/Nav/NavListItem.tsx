@@ -10,6 +10,7 @@ export interface NavListItemProps {
   category?: string;
   icon: ReactNode;
   title: string;
+  link?: string;
 }
 
 const NavListItem: FC<NavListItemProps> = ({ icon, title }) => {

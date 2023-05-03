@@ -6,6 +6,7 @@ import { RiHomeSmileLine } from "react-icons/ri";
 
 import NavListItem, { NavListItemProps } from "./NavListItem";
 import { css } from "@emotion/react";
+import Link from "next/link";
 
 const iconStyle = css`
   color: #29a19c;
@@ -15,7 +16,7 @@ const iconStyle = css`
 `;
 
 const navList: Array<NavListItemProps> = [
-  { category: "logo", icon: <Logo />, title: "PYGMALIHOME" },
+  { category: "logo", icon: <Logo />, title: "PYGMALIHOME", link: "/" },
   {
     category: "allNotice",
     icon: <BsClipboardCheck css={iconStyle} />,
@@ -37,8 +38,10 @@ const Nav = () => {
   return (
     <NavLayout>
       {/* Logo */}
-      {navList.map(({ category, ...props }) => (
-        <NavListItem key={category} {...props} />
+      {navList.map(({ category, link, ...props }) => (
+        <Link href={link ?? "/"} key={category}>
+          <NavListItem {...props} />
+        </Link>
       ))}
       {/* Nav Items */}
     </NavLayout>
