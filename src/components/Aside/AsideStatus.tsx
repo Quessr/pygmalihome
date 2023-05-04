@@ -8,7 +8,6 @@ import {
   CardHeaderContainer,
 } from "@/components/Feed/FeedCardHeader.tsx";
 import { FaRegSadTear as ReactIconsSad } from "react-icons/fa";
-import { Triangle as Loading } from "react-loader-spinner";
 import { CARD_HEADER_IMAGES } from "@/constants/card-header-image-src";
 
 export interface EachNoticeCountProps {

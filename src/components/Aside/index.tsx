@@ -42,13 +42,14 @@ const Aside: FC = () => {
     }
   );
 
-  console.log("thisMonthNoticesCount", thisMonthNoticesCount);
   return (
     <div
       css={css`
         display: grid;
         grid-template-rows: repeat(2, 1fr 3fr);
         gap: 24px;
+        /* margin-top: 28px; */
+        margin-left: 28px;
       `}
     >
       {/* Status */}

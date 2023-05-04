@@ -1,27 +1,11 @@
 import { FC, ReactNode } from "react";
-import FeedCardListLayout from "./FeedCardListLayout";
+import FeedCardListLayout from "@/components/Feed/FeedCardListLayout";
 import styled from "@emotion/styled";
-import FeedCard from "./FeedCard";
+import FeedCard from "@/components/Feed/FeedCard";
 import { css } from "@emotion/react";
+import { FeedCardListProps } from "@/components/Feed/FeedCardList";
 
-export interface FeedCardProps {
-  id?: string;
-  type?: string;
-  category?: string;
-  isReceiving?: boolean;
-  link?: string;
-  title?: string;
-  startDate?: string;
-  endDate?: string;
-}
-
-export interface FeedCardListProps {
-  title?: string;
-  icon?: ReactNode;
-  cardList?: Array<FeedCardProps> | null;
-}
-
-const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
+const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
   return (
     <FeedCardListLayout>
       {/* title */}
@@ -68,7 +52,7 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
   );
 };
 
-export default FeedCardList;
+export default CardList;
 
 const CategoryContainer = styled.div`
   display: flex;
@@ -79,15 +63,17 @@ const CategoryContainer = styled.div`
 `;
 
 const CardListContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding-bottom: 10px;
+  max-height: 832px;
   overflow: auto;
   cursor: pointer;
 
   &::-webkit-scrollbar {
     background-color: transparent;
-    height: 8px;
+    width: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.05);

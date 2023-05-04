@@ -11,6 +11,7 @@ export default FeedCardListLayout;
 
 const StyledFeedContainer = styled.div`
   width: 40.125rem;
+  max-height: 832px;
   background-color: rgba(225, 225, 225, 0.03);
   border: 1px solid rgba(225, 225, 225, 0.07);
   border-radius: 5px;
