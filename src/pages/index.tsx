@@ -37,7 +37,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-6 ${inter.className}`}
+      className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
     >
       <div>
         {/* header */}

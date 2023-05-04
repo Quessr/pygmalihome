@@ -22,7 +22,7 @@ const StyledHeader = styled.div`
   min-height: 76px;
   background-color: rgba(225, 225, 225, 0.02);
   border: rgba(225, 225, 225, 0.05) 1px solid;
-  color: rgba(225, 225, 225, 0.2);
+  color: rgba(225, 225, 225, 0.4);
   padding: 16px;
   font-size: 20px;
 `;
