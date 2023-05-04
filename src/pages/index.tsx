@@ -11,25 +11,6 @@ import Aside from "@/components/Aside";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
-  const thisMonthNoticesCount = await Promise.all(
-    ["sh", "lh"].map((type) => {
-      const endOfMonth = dayjs().endOf("month");
-      return axios
-        .get(
-          "https://pygmalihome-backend.vercel.app/api/housing/subscription",
-          {
-            params: {
-              type,
-              limit: 20,
-              startDate: dayjs().format("YYYY-MM-DD"),
-              endDate: endOfMonth.format("YYYY-MM-DD"),
-            },
-          }
-        )
-        .then((res) => ({ type, count: res.data.total }));
-    })
-  );
-
   const res = await axios.get(
     "https://pygmalihome-backend.vercel.app/api/housing/subscription",
     {
@@ -41,16 +22,10 @@ export async function getStaticProps() {
   const within2WeeksNotices: Array<FeedCardProps> | null =
     res.data?.data?.filter((item: FeedCardProps) => !item.isReceiving) ?? null;
 
-  // const youtubeList = await axios
-  //   .get("https://pygmalihome-backend.vercel.app/api/housing/youtube")
-  //   .then((res) => res.data);
-
   return {
     props: {
       subscriptionPeriodNotices,
       within2WeeksNotices,
-      thisMonthNoticesCount,
-      // youtubeList,
     },
     revalidate: 10, // In seconds
   };
@@ -59,9 +34,7 @@ export async function getStaticProps() {
 export default function Home({
   subscriptionPeriodNotices,
   within2WeeksNotices,
-  thisMonthNoticesCount,
-}: // youtubeList,
-InferGetStaticPropsType<typeof getStaticProps>) {
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
@@ -82,10 +55,7 @@ InferGetStaticPropsType<typeof getStaticProps>) {
           within2WeeksNotices={within2WeeksNotices}
         />
         {/* aside */}
-        <Aside
-          thisMonthNoticesCount={thisMonthNoticesCount}
-          // youtubeList={youtubeList}
-        />
+        <Aside />
         {/* announcement status */}
         {/* youtube */}
       </div>

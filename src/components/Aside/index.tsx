@@ -1,36 +1,48 @@
 import { css } from "@emotion/react";
-import AsideStatus from "./AsideStatus";
+import AsideStatus, { EachNoticeCountProps } from "./AsideStatus";
 import AsideYoutube from "./AsideYoutube";
 import { FC } from "react";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import dayjs from "dayjs";
 
-export interface EachNoticeCountProps {
-  type: string;
-  count: number;
-}
-
-export interface EachYoutubeProps {
-  id?: string;
-  name?: string;
-  thumbnail?: string;
-  url?: string;
-}
-export interface AsideProps {
-  thisMonthNoticesCount?: Array<EachNoticeCountProps>;
-  youtubeList?: Array<EachYoutubeProps>;
-}
-
-const Aside: FC<AsideProps> = ({
-  thisMonthNoticesCount,
-}: // youtubeList,
-AsideProps) => {
+const Aside: FC = () => {
   const { data: youtubeList, isLoading } = useQuery({
-    queryKey: ["aside"],
+    queryKey: ["youtube"],
     queryFn: () => axios.get("/api/housing/youtube").then((res) => res.data),
   });
 
-  console.log("youtubeData", youtubeList);
+  const { data: thisMonthNoticesCount } = useQuery<Array<EachNoticeCountProps>>(
+    {
+      queryKey: ["subscription"],
+      queryFn: async () => {
+        const endOfMonth = dayjs().endOf("month");
+        const requests = ["sh", "lh"].map((type) => {
+          return axios
+            .get("/api/housing/subscription", {
+              params: {
+                type,
+                limit: 20,
+                startDate: dayjs().format("YYYY-MM-DD"),
+                endDate: endOfMonth.format("YYYY-MM-DD"),
+              },
+            })
+            .then((res) => res.data);
+        });
+        const response = await axios.all(requests);
+        return response.map((response, i) => {
+          const type = ["sh", "lh"][i];
+          const { total } = response;
+          return {
+            type,
+            count: total,
+          };
+        });
+      },
+    }
+  );
+
+  console.log("thisMonthNoticesCount", thisMonthNoticesCount);
   return (
     <div
       css={css`
@@ -40,7 +52,10 @@ AsideProps) => {
       `}
     >
       {/* Status */}
-      <AsideStatus thisMonthNoticesCount={thisMonthNoticesCount} />
+      <AsideStatus
+        thisMonthNoticesCount={thisMonthNoticesCount}
+        isLoading={isLoading}
+      />
       {/* Youtube */}
       <AsideYoutube youtubeList={youtubeList} isLoading={isLoading} />
     </div>
