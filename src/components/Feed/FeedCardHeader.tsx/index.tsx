@@ -1,6 +1,4 @@
-import { EachYoutubeProps } from "@/components/Aside";
 import { CARD_HEADER_IMAGES } from "@/constants/card-header-image-src";
-import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { FC, ReactNode } from "react";
 

@@ -10,10 +10,7 @@ export async function getStaticProps() {
       params: { limit: 20 },
     }
   );
-  // const subscriptionPeriodNotices: Array<FeedCardProps> | null =
-  //   res.data?.data?.filter((item: FeedCardProps) => item.isReceiving) ?? null;
-  // const within2WeeksNotices: Array<FeedCardProps> | null =
-  //   res.data?.data?.filter((item: FeedCardProps) => !item.isReceiving) ?? null;
+
   const allNotice: Array<FeedCardProps> = res.data.data;
 
   return {
@@ -28,11 +25,7 @@ const AllNoticePage = ({
   allNotice,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   console.log("allNotice", allNotice);
-  return (
-    <div>
-      <CardList title="전체 공고 입니다." cardList={allNotice} />
-    </div>
-  );
+  return <CardList title="전체 공고 입니다." cardList={allNotice} />;
 };
 
 export default AllNoticePage;

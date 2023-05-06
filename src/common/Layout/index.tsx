@@ -11,10 +11,16 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <div
       css={css`
         display: flex;
+        width: 100%;
+        min-height: 100vh;
       `}
     >
       <Nav />
-      <div>
+      <div
+        css={css`
+          flex-grow: 1;
+        `}
+      >
         <Header />
 
         <div
@@ -23,7 +29,14 @@ const Layout: FC<LayoutProps> = ({ children }) => {
             padding: 28px;
           `}
         >
-          <main>{children}</main>
+          <main
+            css={css`
+              flex-grow: 1;
+              width: calc(100vw - 300px - 252px - 56px - 56px);
+            `}
+          >
+            {children}
+          </main>
           <Aside />
         </div>
       </div>

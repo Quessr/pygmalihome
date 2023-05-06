@@ -1,12 +1,10 @@
 import Feed from "@/components/Feed";
 import Nav from "@/components/Nav";
-import { css } from "@emotion/react";
 import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import { Inter } from "next/font/google";
 import { FeedCardProps } from "@/components/Feed/FeedCardList";
-import dayjs from "dayjs";
-import Aside from "@/components/Aside";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,22 +34,17 @@ export default function Home({
   within2WeeksNotices,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between ${inter.className}`}
-    >
-      <div>
-        {/* header */}
+    <>
+      <Head>
+        <title>메인페이지</title>
+      </Head>
 
-        {/* nav */}
-        {/* <Nav /> */}
-        {/* feed */}
+      <div className={inter.className}>
         <Feed
           subscriptionPeriodNotices={subscriptionPeriodNotices}
           within2WeeksNotices={within2WeeksNotices}
         />
-        {/* aside */}
-        {/* <Aside /> */}
       </div>
-    </main>
+    </>
   );
 }

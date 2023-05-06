@@ -64,12 +64,12 @@ const CategoryContainer = styled.div`
 
 const CardListContainer = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
   gap: 20px;
   padding-bottom: 10px;
-  max-height: 832px;
+  /* max-height: 832px; */
   overflow: auto;
-  cursor: pointer;
 
   &::-webkit-scrollbar {
     background-color: transparent;
