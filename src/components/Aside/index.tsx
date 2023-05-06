@@ -22,22 +22,36 @@ const Aside: FC = () => {
             .get("/api/housing/subscription", {
               params: {
                 type,
-                limit: 20,
-                startDate: dayjs().format("YYYY-MM-DD"),
-                endDate: endOfMonth.format("YYYY-MM-DD"),
+                fromStartDate: dayjs().format("YYYY-MM-DD"),
+                toStartDate: endOfMonth.format("YYYY-MM-DD"),
               },
             })
-            .then((res) => res.data);
+            .then((res) => res.data)
+            .catch((error) => {
+              return Promise.resolve({
+                total: 0,
+                error: error.message,
+              });
+            });
         });
-        const response = await axios.all(requests);
-        return response.map((response, i) => {
-          const type = ["sh", "lh"][i];
-          const { total } = response;
-          return {
-            type,
-            count: total,
-          };
+        const response = await Promise.allSettled(requests);
+        const result = response.map((response, i) => {
+          if (response.status === "fulfilled") {
+            const type = ["sh", "lh"][i];
+            const { total } = response.value;
+            return {
+              type,
+              count: total,
+            };
+          } else {
+            const type = ["sh", "lh"][i];
+            return {
+              type,
+              count: 0,
+            };
+          }
         });
+        return result;
       },
     }
   );
@@ -46,17 +60,15 @@ const Aside: FC = () => {
     <div
       css={css`
         display: grid;
-        grid-template-rows: repeat(2, 1fr 3fr);
+        /* grid-template-rows: repeat(2, 1fr 3fr); */
+        grid-template-rows: 124px 350px;
         gap: 24px;
         /* margin-top: 28px; */
         margin-left: 28px;
       `}
     >
       {/* Status */}
-      <AsideStatus
-        thisMonthNoticesCount={thisMonthNoticesCount}
-        isLoading={isLoading}
-      />
+      <AsideStatus thisMonthNoticesCount={thisMonthNoticesCount} />
       {/* Youtube */}
       <AsideYoutube youtubeList={youtubeList} isLoading={isLoading} />
     </div>

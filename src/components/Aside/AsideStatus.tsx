@@ -17,7 +17,6 @@ export interface EachNoticeCountProps {
 
 interface AsiedeStatusProps {
   thisMonthNoticesCount?: Array<EachNoticeCountProps>;
-  isLoading?: boolean;
   title?: string;
   svg?: ReactNode;
 }
@@ -29,7 +28,6 @@ const baloo2 = Baloo_2({
 const AsideStatus: FC<AsiedeStatusProps> = ({
   title = "이번달 신청가능 공고 현황",
   thisMonthNoticesCount,
-  isLoading,
 }) => {
   const thisMonthShNoticesCount = thisMonthNoticesCount?.find(
     (item) => item.type === "sh"
@@ -37,6 +35,7 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
   const thisMonthLhNoticesCount = thisMonthNoticesCount?.find(
     (item) => item.type === "lh"
   )?.count;
+
   return (
     <AsideLayout>
       <StyledAsideHeader>{title}</StyledAsideHeader>
@@ -60,7 +59,7 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
         {/* LH status */}
         <CardHeaderContainer>
           <AgencyImage src={CARD_HEADER_IMAGES.LH} />
-          {thisMonthShNoticesCount && thisMonthLhNoticesCount !== 0 ? (
+          {thisMonthLhNoticesCount && thisMonthLhNoticesCount !== 0 ? (
             <StatusCount className={`${baloo2.className}`}>
               {`+${thisMonthLhNoticesCount}`}
             </StatusCount>
