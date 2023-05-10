@@ -11,7 +11,7 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
       {/* title */}
       {title && (
         <CategoryContainer>
-          {icon}
+          <span>{icon}</span>
           <h3>{title}</h3>
         </CategoryContainer>
       )}
@@ -56,10 +56,16 @@ export default CardList;
 
 const CategoryContainer = styled.div`
   display: flex;
+  gap: 5px;
   border-bottom: 1px solid rgba(225, 225, 225, 0.07);
   padding: 10px 30px;
   align-items: center;
   color: #29a19c;
+  margin: 0 20px;
+
+  & > span {
+    color: #ecca75;
+  }
 `;
 
 const CardListContainer = styled.div`
@@ -68,7 +74,6 @@ const CardListContainer = styled.div`
   justify-items: center;
   gap: 20px;
   padding-bottom: 10px;
-  /* max-height: 832px; */
   overflow: auto;
 
   &::-webkit-scrollbar {
