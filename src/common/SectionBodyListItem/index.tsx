@@ -5,7 +5,7 @@ import {
 } from "@/components/Feed/FeedCardHeader.tsx";
 import Logo from "@/assets/logo.svg";
 import { FC, ReactNode } from "react";
-import { EachYoutubeProps } from "@/components/Aside";
+import { EachYoutubeProps } from "@/components/Aside/AsideYoutube";
 
 export interface NavListItemProps {
   logo: {
@@ -40,8 +40,6 @@ const SectionBodyListItem: FC<SectionBodyListItemProps> = ({
     <a href={url} target="_blank">
       <YoutubeCardContainer>
         {thumbnail ? <YoutubeThumbnail src={thumbnail} /> : icon}
-        {/* <YoutubeThumbnail src="/logo.svg" /> */}
-        {/* <Logo /> */}
         <Title>{name}</Title>
       </YoutubeCardContainer>
     </a>

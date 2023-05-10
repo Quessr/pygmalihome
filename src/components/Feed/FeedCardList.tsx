@@ -11,7 +11,7 @@ export interface FeedCardProps {
   isReceiving?: boolean;
   link?: string;
   title?: string;
-  startDate?: string;
+  startDate: string;
   endDate?: string;
 }
 
