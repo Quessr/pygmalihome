@@ -33,7 +33,7 @@ const Feed: FC<FeedProps> = ({
         title="청약신청일까지 이주이내의 공고들 입니다!"
         cardList={within2WeeksNotices}
       />
-      <Notification fullWidth />
+      <Notification />
     </div>
   );
 };

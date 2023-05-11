@@ -13,7 +13,21 @@ const iconStyle = css`
 `;
 
 export const NAV_LIST: Array<NavListItemProps> = [
-  { category: "logo", icon: <Logo />, title: "PYGMALIHOME", link: "/" },
+  {
+    category: "logo",
+    icon: (
+      <Logo
+        css={[
+          iconStyle,
+          css`
+            scale: 1.5;
+          `,
+        ]}
+      />
+    ),
+    title: "PYGMALIHOME",
+    link: "/",
+  },
   {
     category: "allNotice",
     icon: <BsClipboardCheck css={iconStyle} />,

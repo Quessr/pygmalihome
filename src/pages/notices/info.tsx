@@ -1,9 +1,9 @@
-import FeedCardList from "@/components/Feed/FeedCardList";
+import CardList from "@/common/CardList";
 
 const NoticeInformationPage = () => {
   return (
     <div>
-      <FeedCardList title="서비스 준비 중 입니다." />
+      <CardList title="서비스 준비 중 입니다." />
     </div>
   );
 };

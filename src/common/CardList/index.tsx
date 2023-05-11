@@ -11,7 +11,7 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
       {/* title */}
       {title && (
         <CategoryContainer>
-          <span>{icon}</span>
+          {icon && <span>{icon}</span>}
           <h3>{title}</h3>
         </CategoryContainer>
       )}
@@ -22,9 +22,9 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
           padding: 30px;
         `}
       >
-        <CardListContainer>
-          {cardList && cardList.length !== 0 ? (
-            cardList.map(
+        {cardList && cardList.length !== 0 ? (
+          <CardListContainer>
+            {cardList.map(
               (card) =>
                 card !== null && (
                   <FeedCard
@@ -36,17 +36,18 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
                     link={card?.link}
                   />
                 )
-            )
-          ) : (
-            <div
-              css={css`
-                color: #ffff;
-              `}
-            >
-              No data available
-            </div>
-          )}
-        </CardListContainer>
+            )}
+          </CardListContainer>
+        ) : (
+          <div
+            css={css`
+              color: #ffff;
+              text-align: center;
+            `}
+          >
+            No data available
+          </div>
+        )}
       </div>
     </FeedCardListLayout>
   );
@@ -68,7 +69,7 @@ const CategoryContainer = styled.div`
   }
 `;
 
-const CardListContainer = styled.div`
+const CardListContainer = styled.div<FeedCardListProps>`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;

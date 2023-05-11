@@ -34,7 +34,7 @@ const AllNoticePage = ({
     <CardList
       title="오늘 기준, 신청 가능한 전체 공고 입니다."
       cardList={allNotice}
-      icon={<AiOutlineSmile />}
+      icon={<AiOutlineSmile width={30} height={30} />}
     />
   );
 };

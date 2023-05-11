@@ -1,31 +1,44 @@
 import { CARD_HEADER_IMAGES } from "@/constants/card-header-image-src";
+import Logo from "@/assets/logo.svg";
 import styled from "@emotion/styled";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
+import { css } from "@emotion/react";
 
 export interface CardHeaderProps {
   image?: string;
   category?: string;
-  type?: string;
+  type?: "logo" | "sh" | "lh";
   color?: "primary" | "secondary";
-  logo?: ReactNode;
 }
 
 const CardHeader: FC<CardHeaderProps> = ({
   category,
   type,
   color = "secondary",
-  logo,
 }) => {
   return (
     <CardHeaderContainer>
-      {type ? (
-        type === "sh" ? (
-          <AgencyImage src={CARD_HEADER_IMAGES.SH} />
-        ) : (
-          <AgencyImage src={CARD_HEADER_IMAGES.LH} />
-        )
-      ) : null}
-      {logo && logo}
+      <div
+        css={css`
+          min-width: 40px;
+          min-height: 40px;
+          width: 40px;
+          height: 40px;
+        `}
+      >
+        {type === "sh" && <AgencyImage src={CARD_HEADER_IMAGES.SH} />}
+        {type === "lh" && <AgencyImage src={CARD_HEADER_IMAGES.LH} />}
+        {type === "logo" && (
+          <Logo
+            width="100%"
+            height="100%"
+            css={css`
+              scale: 1.3;
+            `}
+          />
+        )}
+      </div>
+
       <Title color={color}>{category && category}</Title>
     </CardHeaderContainer>
   );
