@@ -54,9 +54,9 @@ Start the server
 
 ## Related
 
-- lh
-- sh
-- openapi
+- [lh](https://apply.lh.or.kr/LH/index.html?Sls#MN::CLCC_MN_0010:)
+- [sh](https://www.i-sh.co.kr/app/index.do)
+- [openapi](https://www.data.go.kr/index.do)
 
 [Awesome README](https://github.com/matiassingers/awesome-readme)
 
