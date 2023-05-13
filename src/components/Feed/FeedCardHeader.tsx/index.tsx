@@ -7,7 +7,7 @@ import { css } from "@emotion/react";
 export interface CardHeaderProps {
   image?: string;
   category?: string;
-  type?: "logo" | "sh" | "lh";
+  type?: string;
   color?: "primary" | "secondary";
 }
 
