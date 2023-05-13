@@ -68,4 +68,4 @@ Start the server
 
 ## Authors
 
-- [@quessr](https://www.github.com/quessr)
+- [@quessr](https://www.github.com/quessr)
