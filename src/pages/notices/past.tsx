@@ -5,10 +5,15 @@ import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
 
 export async function getStaticProps() {
+  const lastMonthDate = dayjs().subtract(1, "month");
   const res = await axios.get(
     "https://pygmalihome-backend.vercel.app/api/housing/subscription",
     {
-      params: { limit: 20, toStartDate: "2023-05-04", isReceving: false },
+      params: {
+        limit: 20,
+        fromStartDate: lastMonthDate.format("YYYY-MM-DD"),
+        isReceving: false,
+      },
     }
   );
   // const pastNotice: Array<FeedCardProps> = res.data.data.filter(
