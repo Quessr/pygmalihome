@@ -16,14 +16,6 @@ export async function getStaticProps() {
       },
     }
   );
-  // const pastNotice: Array<FeedCardProps> = res.data.data.filter(
-  //   (item: FeedCardProps) => {
-  //     return (
-  //       item.endDate !== undefined &&
-  //       item.endDate < dayjs().format("YYYY-MM-DD")
-  //     );
-  //   }
-  // );
 
   return {
     props: {

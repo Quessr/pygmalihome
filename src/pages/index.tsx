@@ -10,26 +10,29 @@ import dayjs from "dayjs";
 const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
-  const res = await axios.get(
-    "https://pygmalihome-backend.vercel.app/api/housing/subscription",
-    {
-      params: { limit: 20 },
-    }
-  );
-  const subscriptionPeriodNotices: Array<FeedCardProps> | null =
-    res.data?.data?.filter((item: FeedCardProps) => item.isReceiving) ?? null;
-  const within2WeeksNotices: Array<FeedCardProps> | null =
-    res.data?.data?.filter(
-      (item: FeedCardProps) =>
-        !item.isReceiving && item.startDate > dayjs().format("YYYY-MM-DD")
-    ) ?? null;
+  const subscriptionPeriodNotices = await axios
+    .get("https://pygmalihome-backend.vercel.app/api/housing/subscription", {
+      params: { limit: 20, isReceiving: true },
+    })
+    .then((res) => res.data.data);
+
+  const within2WeeksNotices = await axios
+    .get("https://pygmalihome-backend.vercel.app/api/housing/subscription", {
+      params: {
+        limit: 20,
+        isReceiving: false,
+        fromStartDate: dayjs().format("YYYY-MM-DD"),
+        toStartDate: dayjs().add(2, "weeks").format("YYYY-MM-DD"),
+      },
+    })
+    .then((res) => res.data.data);
 
   return {
     props: {
       subscriptionPeriodNotices,
       within2WeeksNotices,
     },
-    revalidate: 10, // In seconds
+    revalidate: 10,
   };
 }
 
