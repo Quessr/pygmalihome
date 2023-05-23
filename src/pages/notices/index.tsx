@@ -6,30 +6,23 @@ import { InferGetStaticPropsType } from "next";
 import { AiOutlineSmile } from "react-icons/ai";
 
 export async function getStaticProps() {
-  const res = await axios.get(
-    "https://pygmalihome-backend.vercel.app/api/housing/subscription",
-    {
-      params: { limit: 20 },
-    }
-  );
-
-  const allNotice: Array<FeedCardProps> =
-    res.data.data.filter(
-      (item: FeedCardProps) => item.startDate > dayjs().format("YYYY-MM-DD")
-    ) ?? null;
+  const allNotice = await axios
+    .get("https://pygmalihome-backend.vercel.app/api/housing/subscription", {
+      params: { limit: 100, fromStartDate: dayjs().format("YYYY-MM-DD") },
+    })
+    .then((res) => res.data.data);
 
   return {
     props: {
       allNotice,
     },
-    revalidate: 10, // In seconds
+    revalidate: 10,
   };
 }
 
 const AllNoticePage = ({
   allNotice,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log("allNotice", allNotice);
   return (
     <CardList
       title="오늘 기준, 신청 가능한 전체 공고 입니다."
