@@ -1,8 +1,8 @@
 import CardList from "@/common/CardList";
-import { FeedCardProps } from "@/components/Feed/FeedCardList";
 import axios from "axios";
 import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 import { AiOutlineSmile } from "react-icons/ai";
 
 export async function getStaticProps() {
@@ -24,11 +24,14 @@ const AllNoticePage = ({
   allNotice,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <CardList
-      title="오늘 기준, 신청 가능한 전체 공고 입니다."
-      cardList={allNotice}
-      icon={<AiOutlineSmile width={30} height={30} />}
-    />
+    <>
+      <NextSeo title="신청 가능한 전체 공고 보기" />
+      <CardList
+        title="오늘 기준, 신청 가능한 전체 공고 입니다."
+        cardList={allNotice}
+        icon={<AiOutlineSmile width={30} height={30} />}
+      />
+    </>
   );
 };
 

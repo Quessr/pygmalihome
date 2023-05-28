@@ -3,6 +3,7 @@ import FeedCardList, { FeedCardProps } from "@/components/Feed/FeedCardList";
 import axios from "axios";
 import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
+import { NextSeo } from "next-seo";
 
 export async function getStaticProps() {
   const lastMonthDate = dayjs().subtract(1, "month");
@@ -31,6 +32,7 @@ const PastNoticePage = ({
   console.log("pastNotice", pastNotice);
   return (
     <div>
+      <NextSeo title="지난 공고 모아보기" />
       <CardList title="신청 기한이 지난 공고 입니다." cardList={pastNotice} />
     </div>
   );

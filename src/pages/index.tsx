@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import { FeedCardProps } from "@/components/Feed/FeedCardList";
 import Head from "next/head";
 import dayjs from "dayjs";
+import { NextSeo } from "next-seo";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -42,9 +43,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
-      <Head>
-        <title>메인페이지</title>
-      </Head>
+      <NextSeo title="당신의 집은 이루어 진다" />
 
       <div className={inter.className}>
         <Feed
