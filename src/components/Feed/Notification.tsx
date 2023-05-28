@@ -1,12 +1,12 @@
-import CardLayout, { CardLayoutProps } from "@/common/CardLayout";
 import FeedCardListLayout from "./FeedCardListLayout";
 import CardHeader from "@/components/Feed/FeedCardHeader.tsx";
-import Button from "@/common/Button";
-import Input from "@/common/Input";
 import { css } from "@emotion/react";
 import Logo from "@/assets/logo.svg";
 import { FC, useState } from "react";
 import axios from "axios";
+import CardLayout from "../common/CardLayout";
+import Button from "../common/Button";
+import Input from "../common/Input";
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
-import Button from "@/common/Button";
 import CardHeader from "@/components/Feed/FeedCardHeader.tsx";
-import CardLayout from "@/common/CardLayout";
 import { FeedCardProps } from "./FeedCardList";
+import Button from "../common/Button";
+import CardLayout from "../common/CardLayout";
 
 const FeedCard = ({
   title,

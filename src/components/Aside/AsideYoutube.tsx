@@ -3,8 +3,8 @@ import AsideLayout from "./AsideLayout";
 import { StyledAsideHeader } from "./AsideStatus";
 import { FC } from "react";
 import styled from "@emotion/styled";
-import SectionBodyListItem from "@/common/SectionBodyListItem";
 import { Triangle as Loading } from "react-loader-spinner";
+import SectionBodyListItem from "../common/SectionBodyListItem";
 
 export interface EachYoutubeProps {
   id?: string;

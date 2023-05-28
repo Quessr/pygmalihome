@@ -1,4 +1,4 @@
-import CardList from "@/common/CardList";
+import CardList from "@/components/common/CardList";
 import axios from "axios";
 import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
