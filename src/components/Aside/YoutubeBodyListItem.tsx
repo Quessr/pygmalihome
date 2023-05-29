@@ -2,7 +2,7 @@ import {
   Title,
   CardHeaderContainer as YoutubeCardContainer,
   AgencyImage as YoutubeThumbnail,
-} from '@/components/Feed/FeedCardHeader.tsx';
+} from '@/components/common/NoticeCardHeader';
 import { FC, ReactNode } from 'react';
 
 import { EachYoutubeProps } from './AsideYoutube';

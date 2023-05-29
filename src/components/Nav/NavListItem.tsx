@@ -2,7 +2,7 @@ import {
   CardHeaderContainer,
   AgencyImage as NavIcon,
   Title,
-} from '@/components/Feed/FeedCardHeader.tsx';
+} from '@/components/common/NoticeCardHeader';
 import styled from '@emotion/styled';
 import { FC, ReactNode } from 'react';
 

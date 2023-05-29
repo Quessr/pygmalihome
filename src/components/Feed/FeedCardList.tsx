@@ -1,30 +1,14 @@
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { FC, ReactNode } from 'react';
+import { FC } from 'react';
 
-import FeedCard from './FeedCard';
-import FeedCardListLayout from './FeedCardListLayout';
+import { CardListProps } from '../common/CardList';
+import NoticeCard from '../common/NoticeCard';
+import SectionContainer from '../common/SectionContainer';
 
-export interface FeedCardProps {
-  id?: string;
-  type?: string;
-  category?: string;
-  isReceiving?: boolean;
-  link?: string;
-  title?: string;
-  startDate: string;
-  endDate?: string;
-}
-
-export interface FeedCardListProps {
-  title?: string;
-  icon?: ReactNode;
-  cardList?: Array<FeedCardProps> | null;
-}
-
-const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
+const FeedCardList: FC<CardListProps> = ({ title, icon, cardList }) => {
   return (
-    <FeedCardListLayout>
+    <SectionContainer>
       {/* title */}
       {title && (
         <CategoryContainer>
@@ -44,7 +28,7 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
             cardList.map(
               ({ id, title, type, category, startDate, link }) =>
                 cardList && (
-                  <FeedCard
+                  <NoticeCard
                     key={id}
                     title={title}
                     type={type}
@@ -65,7 +49,7 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
           )}
         </CardListContainer>
       </div>
-    </FeedCardListLayout>
+    </SectionContainer>
   );
 };
 

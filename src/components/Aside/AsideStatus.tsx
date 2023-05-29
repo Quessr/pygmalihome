@@ -1,7 +1,7 @@
 import {
   AgencyImage,
   CardHeaderContainer,
-} from '@/components/Feed/FeedCardHeader.tsx';
+} from '@/components/common/NoticeCardHeader';
 import { CARD_HEADER_IMAGES } from '@/constants/card-header-image-src';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';

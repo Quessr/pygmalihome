@@ -1,5 +1,5 @@
 import Logo from '@/assets/logo.svg';
-import CardHeader from '@/components/Feed/FeedCardHeader.tsx';
+import CardHeader from '@/components/common/NoticeCardHeader';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
@@ -8,7 +8,7 @@ import { FC, useState } from 'react';
 import Button from '../common/Button';
 import CardLayout from '../common/CardLayout';
 import Input from '../common/Input';
-import FeedCardListLayout from './FeedCardListLayout';
+import FeedCardListLayout from '../common/SectionContainer';
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

@@ -4,14 +4,14 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC } from 'react';
 
-export interface CardHeaderProps {
+export interface NoticeCardHeaderProps {
   image?: string;
   category?: string;
   type?: string;
   color?: 'primary' | 'secondary';
 }
 
-const CardHeader: FC<CardHeaderProps> = ({
+const NoticeCardHeader: FC<NoticeCardHeaderProps> = ({
   category,
   type,
   color = 'secondary',
@@ -44,7 +44,7 @@ const CardHeader: FC<CardHeaderProps> = ({
   );
 };
 
-export default CardHeader;
+export default NoticeCardHeader;
 
 export const CardHeaderContainer = styled.div`
   display: flex;
@@ -59,7 +59,7 @@ export const AgencyImage = styled.img`
   border-radius: 7.5rem;
 `;
 
-export const Title = styled.h3<Pick<CardHeaderProps, 'color'>>`
+export const Title = styled.h3<Pick<NoticeCardHeaderProps, 'color'>>`
   color: ${(props) => (props.color === 'primary' ? '#29A19C' : '#ffff')};
   display: flex;
   align-items: center;

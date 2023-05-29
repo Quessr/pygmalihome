@@ -2,13 +2,14 @@ import { css } from '@emotion/react';
 import { FC } from 'react';
 
 import AlertBellIcon from '../common/AlertBellIcon';
+import { NoticeCardProps } from '../common/NoticeCard';
 import ShackeBellIcon from '../common/ShakeBellIcon';
-import FeedCardList, { FeedCardProps } from './FeedCardList';
+import FeedCardList from './FeedCardList';
 import Notification from './Notification';
 
 interface FeedProps {
-  subscriptionPeriodNotices?: Array<FeedCardProps> | null;
-  within2WeeksNotices?: Array<FeedCardProps> | null;
+  subscriptionPeriodNotices?: Array<NoticeCardProps> | null;
+  within2WeeksNotices?: Array<NoticeCardProps> | null;
 }
 
 const Feed: FC<FeedProps> = ({

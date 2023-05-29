@@ -1,13 +1,19 @@
-import FeedCard from '@/components/Feed/FeedCard';
-import { FeedCardListProps } from '@/components/Feed/FeedCardList';
-import FeedCardListLayout from '@/components/Feed/FeedCardListLayout';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC, ReactNode } from 'react';
 
-const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
+import NoticeCard, { NoticeCardProps } from '../NoticeCard';
+import SectionContainer from '../SectionContainer';
+
+export interface CardListProps {
+  title?: string;
+  icon?: ReactNode;
+  cardList?: Array<NoticeCardProps> | null;
+}
+
+const CardList: FC<CardListProps> = ({ title, icon, cardList }) => {
   return (
-    <FeedCardListLayout>
+    <SectionContainer>
       {/* title */}
       {title && (
         <CategoryContainer>
@@ -27,7 +33,7 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
             {cardList.map(
               ({ id, title, type, category, startDate, link }) =>
                 cardList && (
-                  <FeedCard
+                  <NoticeCard
                     key={id}
                     title={title}
                     type={type}
@@ -49,7 +55,7 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
           </div>
         )}
       </div>
-    </FeedCardListLayout>
+    </SectionContainer>
   );
 };
 
@@ -69,7 +75,7 @@ const CategoryContainer = styled.div`
   }
 `;
 
-const CardListContainer = styled.div<FeedCardListProps>`
+const CardListContainer = styled.div<CardListProps>`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
@@ -80,6 +86,7 @@ const CardListContainer = styled.div<FeedCardListProps>`
   &::-webkit-scrollbar {
     background-color: transparent;
     width: 8px;
+    height: 8px;
   }
   &::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.05);

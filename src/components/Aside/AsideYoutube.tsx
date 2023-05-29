@@ -1,4 +1,4 @@
-import CardHeader from '@/components/Feed/FeedCardHeader.tsx';
+import CardHeader from '@/components/common/NoticeCardHeader';
 import styled from '@emotion/styled';
 import { FC } from 'react';
 import { Triangle as Loading } from 'react-loader-spinner';

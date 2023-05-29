@@ -1,13 +1,12 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC, useEffect, useRef, useState } from 'react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
 
-interface FeedCardTitleProps {
+interface NoticeCardTitleProps {
   title: string;
 }
 
-const FeedCardTitle: FC<FeedCardTitleProps> = ({ title }) => {
+const NoticeCardTitle: FC<NoticeCardTitleProps> = ({ title }) => {
   const textRef = useRef<HTMLDivElement>(null);
   const [hasEllipsis, setHasEllipsis] = useState(false);
 
@@ -20,13 +19,13 @@ const FeedCardTitle: FC<FeedCardTitleProps> = ({ title }) => {
   }, [title]);
   return (
     <>
-      <CardTitle
+      <StyledCardTitle
         data-tooltip-id={hasEllipsis ? 'cardTitle' : undefined}
         data-tooltip-content={title}
         ref={textRef}
       >
         {title}
-      </CardTitle>
+      </StyledCardTitle>
       <ReactTooltip
         id="cardTitle"
         place="bottom"
@@ -40,9 +39,9 @@ const FeedCardTitle: FC<FeedCardTitleProps> = ({ title }) => {
   );
 };
 
-export default FeedCardTitle;
+export default NoticeCardTitle;
 
-const CardTitle = styled.div`
+const StyledCardTitle = styled.div`
   height: 48px;
   display: -webkit-box;
   -webkit-line-clamp: 2;

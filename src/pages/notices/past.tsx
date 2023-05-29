@@ -1,4 +1,3 @@
-import FeedCardList, { FeedCardProps } from '@/components/Feed/FeedCardList';
 import CardList from '@/components/common/CardList';
 import { HOUR } from '@/constants/revalidate-time';
 import axios from 'axios';
