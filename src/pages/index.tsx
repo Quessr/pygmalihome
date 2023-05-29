@@ -1,12 +1,10 @@
 import Feed from "@/components/Feed";
-import Nav from "@/components/Nav";
 import axios from "axios";
 import { InferGetStaticPropsType } from "next";
 import { Inter } from "next/font/google";
-import { FeedCardProps } from "@/components/Feed/FeedCardList";
-import Head from "next/head";
 import dayjs from "dayjs";
 import { NextSeo } from "next-seo";
+import { HOUR } from "@/constants/revalidate-time";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +31,7 @@ export async function getStaticProps() {
       subscriptionPeriodNotices,
       within2WeeksNotices,
     },
-    revalidate: 10,
+    revalidate: HOUR,
   };
 }
 

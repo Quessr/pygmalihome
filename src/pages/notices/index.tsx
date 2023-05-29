@@ -1,4 +1,5 @@
 import CardList from "@/components/common/CardList";
+import { HOUR } from "@/constants/revalidate-time";
 import axios from "axios";
 import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
@@ -16,7 +17,7 @@ export async function getStaticProps() {
     props: {
       allNotice,
     },
-    revalidate: 10,
+    revalidate: HOUR,
   };
 }
 

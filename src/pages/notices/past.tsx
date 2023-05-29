@@ -1,5 +1,6 @@
 import FeedCardList, { FeedCardProps } from "@/components/Feed/FeedCardList";
 import CardList from "@/components/common/CardList";
+import { HOUR } from "@/constants/revalidate-time";
 import axios from "axios";
 import dayjs from "dayjs";
 import { InferGetStaticPropsType } from "next";
@@ -22,7 +23,7 @@ export async function getStaticProps() {
     props: {
       pastNotice: res.data.data,
     },
-    revalidate: 10, // In seconds
+    revalidate: HOUR,
   };
 }
 
