@@ -1,8 +1,8 @@
 import { css } from "@emotion/react";
-import AlertBellIcon from "./AlertBellIcon";
-import FeedCardList, { FeedCardListProps, FeedCardProps } from "./FeedCardList";
+import AlertBellIcon from "../common/AlertBellIcon";
+import FeedCardList, { FeedCardProps } from "./FeedCardList";
 import Notification from "./Notification";
-import ShackeBellIcon from "./ShakeBellIcon";
+import ShackeBellIcon from "../common/ShakeBellIcon";
 import { FC } from "react";
 
 interface FeedProps {

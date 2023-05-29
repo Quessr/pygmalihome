@@ -2,16 +2,12 @@ import styled from "@emotion/styled";
 import { TbBellRingingFilled } from "react-icons/tb";
 
 const ShackeBellIcon = () => {
-  return (
-    <ShakeBell>
-      <TbBellRingingFilled />
-    </ShakeBell>
-  );
+  return <ShakeBell />;
 };
 
 export default ShackeBellIcon;
 
-const ShakeBell = styled.div`
+const ShakeBell = styled(TbBellRingingFilled)`
   color: #ecca75;
   margin-right: 5px;
   width: 20px;

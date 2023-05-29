@@ -25,15 +25,15 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
         {cardList && cardList.length !== 0 ? (
           <CardListContainer>
             {cardList.map(
-              (card) =>
-                card !== null && (
+              ({ id, title, type, category, startDate, link }) =>
+                cardList && (
                   <FeedCard
-                    key={card?.id}
-                    title={card?.title}
-                    type={card?.type}
-                    category={card?.category}
-                    startDate={card?.startDate}
-                    link={card?.link}
+                    key={id}
+                    title={title}
+                    type={type}
+                    category={category}
+                    startDate={startDate}
+                    link={link}
                   />
                 )
             )}
