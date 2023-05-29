@@ -1,13 +1,7 @@
 import styled from "@emotion/styled";
 import { TbBellRingingFilled } from "react-icons/tb";
 
-const ShackeBellIcon = () => {
-  return <ShakeBell />;
-};
-
-export default ShackeBellIcon;
-
-const ShakeBell = styled(TbBellRingingFilled)`
+const ShackeBellIcon = styled(TbBellRingingFilled)`
   color: #ecca75;
   margin-right: 5px;
   width: 20px;
@@ -18,3 +12,5 @@ const ShakeBell = styled(TbBellRingingFilled)`
     height: 100%;
   }
 `;
+
+export default ShackeBellIcon;

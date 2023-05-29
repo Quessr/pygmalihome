@@ -40,10 +40,10 @@ export const NAV_LIST: Array<NavListItemProps> = [
     title: "지난 공고 모아보기",
     link: "/notices/past",
   },
-  {
-    category: "information",
-    icon: <RiHomeSmileLine css={iconStyle} />,
-    title: "공급 계획 정보 모아보기",
-    link: "/notices/info",
-  },
+  // {
+  //   category: "information",
+  //   icon: <RiHomeSmileLine css={iconStyle} />,
+  //   title: "공급 계획 정보 모아보기",
+  //   link: "/notices/info",
+  // },
 ];
