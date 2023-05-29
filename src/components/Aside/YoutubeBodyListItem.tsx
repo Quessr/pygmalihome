@@ -1,10 +1,11 @@
 import {
+  Title,
   CardHeaderContainer as YoutubeCardContainer,
   AgencyImage as YoutubeThumbnail,
-  Title,
-} from "@/components/Feed/FeedCardHeader.tsx";
-import { FC, ReactNode } from "react";
-import { EachYoutubeProps } from "./AsideYoutube";
+} from '@/components/Feed/FeedCardHeader.tsx';
+import { FC, ReactNode } from 'react';
+
+import { EachYoutubeProps } from './AsideYoutube';
 
 interface YoutubeBodyListItemProps extends EachYoutubeProps {
   icon?: ReactNode;

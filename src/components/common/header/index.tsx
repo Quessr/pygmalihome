@@ -1,9 +1,9 @@
-import styled from "@emotion/styled";
-import { East_Sea_Dokdo } from "@next/font/google";
+import styled from '@emotion/styled';
+import { East_Sea_Dokdo } from '@next/font/google';
 
 const eastSeaDokdo = East_Sea_Dokdo({
-  weight: ["400"],
-  subsets: ["latin"],
+  weight: ['400'],
+  subsets: ['latin'],
 });
 const Header = () => {
   return (

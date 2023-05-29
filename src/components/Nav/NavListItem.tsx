@@ -1,10 +1,10 @@
-import { FC, ReactNode } from "react";
 import {
   CardHeaderContainer,
   AgencyImage as NavIcon,
   Title,
-} from "@/components/Feed/FeedCardHeader.tsx";
-import styled from "@emotion/styled";
+} from '@/components/Feed/FeedCardHeader.tsx';
+import styled from '@emotion/styled';
+import { FC, ReactNode } from 'react';
 
 export interface NavListItemProps {
   category?: string;

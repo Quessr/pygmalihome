@@ -1,9 +1,10 @@
-import { css } from "@emotion/react";
-import AlertBellIcon from "../common/AlertBellIcon";
-import FeedCardList, { FeedCardProps } from "./FeedCardList";
-import Notification from "./Notification";
-import ShackeBellIcon from "../common/ShakeBellIcon";
-import { FC } from "react";
+import { css } from '@emotion/react';
+import { FC } from 'react';
+
+import AlertBellIcon from '../common/AlertBellIcon';
+import ShackeBellIcon from '../common/ShakeBellIcon';
+import FeedCardList, { FeedCardProps } from './FeedCardList';
+import Notification from './Notification';
 
 interface FeedProps {
   subscriptionPeriodNotices?: Array<FeedCardProps> | null;

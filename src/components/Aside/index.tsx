@@ -1,35 +1,36 @@
-import { css } from "@emotion/react";
-import AsideStatus, { EachNoticeCountProps } from "./AsideStatus";
-import AsideYoutube from "./AsideYoutube";
-import { FC } from "react";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
-import dayjs from "dayjs";
+import { css } from '@emotion/react';
+import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+import dayjs from 'dayjs';
+import { FC } from 'react';
+
+import AsideStatus, { EachNoticeCountProps } from './AsideStatus';
+import AsideYoutube from './AsideYoutube';
 
 const getParamList = () => {
-  const startOfMonth = dayjs().startOf("month");
-  const endOfMonth = dayjs().endOf("month");
+  const startOfMonth = dayjs().startOf('month');
+  const endOfMonth = dayjs().endOf('month');
   return [
     {
-      type: "sh",
-      fromStartDate: dayjs().format("YYYY-MM-DD"),
-      toStartDate: endOfMonth.format("YYYY-MM-DD"),
+      type: 'sh',
+      fromStartDate: dayjs().format('YYYY-MM-DD'),
+      toStartDate: endOfMonth.format('YYYY-MM-DD'),
     },
     {
-      type: "lh",
-      fromStartDate: dayjs().format("YYYY-MM-DD"),
-      toStartDate: endOfMonth.format("YYYY-MM-DD"),
+      type: 'lh',
+      fromStartDate: dayjs().format('YYYY-MM-DD'),
+      toStartDate: endOfMonth.format('YYYY-MM-DD'),
     },
     {
-      type: "sh",
-      fromStartDate: startOfMonth.format("YYYY-MM-DD"),
-      toStartDate: dayjs().subtract(1, "day").format("YYYY-MM-DD"),
+      type: 'sh',
+      fromStartDate: startOfMonth.format('YYYY-MM-DD'),
+      toStartDate: dayjs().subtract(1, 'day').format('YYYY-MM-DD'),
       isReceiving: true,
     },
     {
-      type: "lh",
-      fromStartDate: startOfMonth.format("YYYY-MM-DD"),
-      toStartDate: dayjs().subtract(1, "day").format("YYYY-MM-DD"),
+      type: 'lh',
+      fromStartDate: startOfMonth.format('YYYY-MM-DD'),
+      toStartDate: dayjs().subtract(1, 'day').format('YYYY-MM-DD'),
       isReceiving: true,
     },
   ];
@@ -37,17 +38,17 @@ const getParamList = () => {
 
 const Aside: FC = () => {
   const { data: youtubeList, isLoading } = useQuery({
-    queryKey: ["youtube"],
-    queryFn: () => axios.get("/api/housing/youtube").then((res) => res.data),
+    queryKey: ['youtube'],
+    queryFn: () => axios.get('/api/housing/youtube').then((res) => res.data),
   });
 
   const { data: thisMonthNoticesCount } = useQuery({
-    queryKey: ["subscriptionCount"],
+    queryKey: ['subscriptionCount'],
     queryFn: async () => {
       const paramList = getParamList();
       const requestList = paramList.map((params) => {
         return axios
-          .get("/api/housing/subscription", {
+          .get('/api/housing/subscription', {
             params,
           })
           .then((res) => {
@@ -67,7 +68,7 @@ const Aside: FC = () => {
       });
       const responseList = await Promise.allSettled(requestList);
       const result = responseList.map((response) => {
-        if (response.status === "fulfilled") {
+        if (response.status === 'fulfilled') {
           const {
             value: { type, total },
           } = response;
@@ -83,7 +84,7 @@ const Aside: FC = () => {
         result.reduce((acc, cur) => {
           if (cur) acc[cur.type] = (acc[cur.type] ?? 0) + cur.count;
           return acc;
-        }, {} as Record<string, number>)
+        }, {} as Record<string, number>),
       ).map(([type, count]) => ({ type, count }));
     },
   });

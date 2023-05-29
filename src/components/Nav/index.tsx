@@ -1,15 +1,15 @@
-import NavLayout from "./NavLayout";
+import { NAV_LIST } from '@/constants/nav-list';
+import Link from 'next/link';
 
-import NavListItem from "./NavListItem";
-import Link from "next/link";
-import { NAV_LIST } from "@/constants/nav-list";
+import NavLayout from './NavLayout';
+import NavListItem from './NavListItem';
 
 const Nav = () => {
   return (
     <NavLayout>
       {/* Logo */}
       {NAV_LIST.map(({ category, link, ...props }) => (
-        <Link href={link ?? "/"} key={category}>
+        <Link href={link ?? '/'} key={category}>
           <NavListItem {...props} />
         </Link>
       ))}

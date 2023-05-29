@@ -1,8 +1,9 @@
-import Aside from "@/components/Aside";
-import Nav from "@/components/Nav";
-import { css } from "@emotion/react";
-import { FC, PropsWithChildren } from "react";
-import Header from "../header";
+import Aside from '@/components/Aside';
+import Nav from '@/components/Nav';
+import { css } from '@emotion/react';
+import { FC, PropsWithChildren } from 'react';
+
+import Header from '../header';
 
 type LayoutProps = PropsWithChildren;
 

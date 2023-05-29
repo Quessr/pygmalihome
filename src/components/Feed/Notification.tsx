@@ -1,13 +1,14 @@
-import FeedCardListLayout from "./FeedCardListLayout";
-import CardHeader from "@/components/Feed/FeedCardHeader.tsx";
-import { css } from "@emotion/react";
-import Logo from "@/assets/logo.svg";
-import { FC, useState } from "react";
-import axios from "axios";
-import CardLayout from "../common/CardLayout";
-import Button from "../common/Button";
-import Input from "../common/Input";
-import styled from "@emotion/styled";
+import Logo from '@/assets/logo.svg';
+import CardHeader from '@/components/Feed/FeedCardHeader.tsx';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import axios from 'axios';
+import { FC, useState } from 'react';
+
+import Button from '../common/Button';
+import CardLayout from '../common/CardLayout';
+import Input from '../common/Input';
+import FeedCardListLayout from './FeedCardListLayout';
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +16,7 @@ const Notification: FC = () => {
     const target = e.target as HTMLFormElement;
     const userEmail = target.useremail.value;
 
-    axios.post("/api/notification/subscribe", { email: userEmail });
+    axios.post('/api/notification/subscribe', { email: userEmail });
   };
 
   return (

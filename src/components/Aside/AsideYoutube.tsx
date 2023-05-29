@@ -1,10 +1,11 @@
-import CardHeader from "@/components/Feed/FeedCardHeader.tsx";
-import AsideLayout from "./AsideLayout";
-import { StyledAsideHeader } from "./AsideStatus";
-import { FC } from "react";
-import styled from "@emotion/styled";
-import { Triangle as Loading } from "react-loader-spinner";
-import SectionBodyListItem from "../common/SectionBodyListItem";
+import CardHeader from '@/components/Feed/FeedCardHeader.tsx';
+import styled from '@emotion/styled';
+import { FC } from 'react';
+import { Triangle as Loading } from 'react-loader-spinner';
+
+import SectionBodyListItem from '../common/SectionBodyListItem';
+import AsideLayout from './AsideLayout';
+import { StyledAsideHeader } from './AsideStatus';
 
 export interface EachYoutubeProps {
   id?: string;

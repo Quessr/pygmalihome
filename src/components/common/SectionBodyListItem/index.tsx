@@ -1,11 +1,11 @@
+import Logo from '@/assets/logo.svg';
+import { EachYoutubeProps } from '@/components/Aside/AsideYoutube';
 import {
+  Title,
   CardHeaderContainer as YoutubeCardContainer,
   AgencyImage as YoutubeThumbnail,
-  Title,
-} from "@/components/Feed/FeedCardHeader.tsx";
-import Logo from "@/assets/logo.svg";
-import { FC, ReactNode } from "react";
-import { EachYoutubeProps } from "@/components/Aside/AsideYoutube";
+} from '@/components/Feed/FeedCardHeader.tsx';
+import { FC, ReactNode } from 'react';
 
 export interface NavListItemProps {
   logo: {

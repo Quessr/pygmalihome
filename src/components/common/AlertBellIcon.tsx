@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { BsExclamationLg } from "react-icons/bs";
-import { TbBellFilled } from "react-icons/tb";
+import styled from '@emotion/styled';
+import { BsExclamationLg } from 'react-icons/bs';
+import { TbBellFilled } from 'react-icons/tb';
 
 const AlertBellIcon = () => {
   return (

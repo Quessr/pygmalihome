@@ -1,5 +1,5 @@
-import CardList from "@/components/common/CardList";
-import { NextSeo } from "next-seo";
+import CardList from '@/components/common/CardList';
+import { NextSeo } from 'next-seo';
 
 const NoticeInformationPage = () => {
   return (

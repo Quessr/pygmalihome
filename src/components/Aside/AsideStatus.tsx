@@ -1,14 +1,15 @@
-import { FC, ReactNode } from "react";
-import AsideLayout from "./AsideLayout";
-import styled from "@emotion/styled";
-import { Baloo_2 } from "@next/font/google";
-import { css } from "@emotion/react";
 import {
   AgencyImage,
   CardHeaderContainer,
-} from "@/components/Feed/FeedCardHeader.tsx";
-import { FaRegSadTear as ReactIconsSad } from "react-icons/fa";
-import { CARD_HEADER_IMAGES } from "@/constants/card-header-image-src";
+} from '@/components/Feed/FeedCardHeader.tsx';
+import { CARD_HEADER_IMAGES } from '@/constants/card-header-image-src';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Baloo_2 } from '@next/font/google';
+import { FC, ReactNode } from 'react';
+import { FaRegSadTear as ReactIconsSad } from 'react-icons/fa';
+
+import AsideLayout from './AsideLayout';
 
 export interface EachNoticeCountProps {
   type: string;
@@ -22,18 +23,18 @@ interface AsiedeStatusProps {
 }
 
 const baloo2 = Baloo_2({
-  weight: ["500", "600", "700"],
-  subsets: ["latin"],
+  weight: ['500', '600', '700'],
+  subsets: ['latin'],
 });
 const AsideStatus: FC<AsiedeStatusProps> = ({
-  title = "이번달 신청가능 공고 현황",
+  title = '이번달 신청가능 공고 현황',
   thisMonthNoticesCount,
 }) => {
   const thisMonthShNoticesCount = thisMonthNoticesCount?.find(
-    (item) => item.type === "sh"
+    (item) => item.type === 'sh',
   )?.count;
   const thisMonthLhNoticesCount = thisMonthNoticesCount?.find(
-    (item) => item.type === "lh"
+    (item) => item.type === 'lh',
   )?.count;
 
   return (

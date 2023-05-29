@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { TbBellRingingFilled } from "react-icons/tb";
+import styled from '@emotion/styled';
+import { TbBellRingingFilled } from 'react-icons/tb';
 
 const ShackeBellIcon = styled(TbBellRingingFilled)`
   color: #ecca75;

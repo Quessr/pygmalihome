@@ -1,27 +1,27 @@
-import Feed from "@/components/Feed";
-import axios from "axios";
-import { InferGetStaticPropsType } from "next";
-import { Inter } from "next/font/google";
-import dayjs from "dayjs";
-import { NextSeo } from "next-seo";
-import { HOUR } from "@/constants/revalidate-time";
+import Feed from '@/components/Feed';
+import { HOUR } from '@/constants/revalidate-time';
+import axios from 'axios';
+import dayjs from 'dayjs';
+import { InferGetStaticPropsType } from 'next';
+import { NextSeo } from 'next-seo';
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export async function getStaticProps() {
   const subscriptionPeriodNotices = await axios
-    .get("https://pygmalihome-backend.vercel.app/api/housing/subscription", {
+    .get('https://pygmalihome-backend.vercel.app/api/housing/subscription', {
       params: { limit: 20, isReceiving: true },
     })
     .then((res) => res.data.data);
 
   const within2WeeksNotices = await axios
-    .get("https://pygmalihome-backend.vercel.app/api/housing/subscription", {
+    .get('https://pygmalihome-backend.vercel.app/api/housing/subscription', {
       params: {
         limit: 20,
         isReceiving: false,
-        fromStartDate: dayjs().format("YYYY-MM-DD"),
-        toStartDate: dayjs().add(2, "weeks").format("YYYY-MM-DD"),
+        fromStartDate: dayjs().format('YYYY-MM-DD'),
+        toStartDate: dayjs().add(2, 'weeks').format('YYYY-MM-DD'),
       },
     })
     .then((res) => res.data.data);

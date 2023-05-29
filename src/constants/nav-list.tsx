@@ -1,9 +1,9 @@
-import { css } from "@emotion/react";
-import Logo from "@/assets/logo.svg";
-import { BsClipboardCheck } from "react-icons/bs";
-import { MdContentPasteGo } from "react-icons/md";
-import { RiHomeSmileLine } from "react-icons/ri";
-import { NavListItemProps } from "@/components/Nav/NavListItem";
+import Logo from '@/assets/logo.svg';
+import { NavListItemProps } from '@/components/Nav/NavListItem';
+import { css } from '@emotion/react';
+import { BsClipboardCheck } from 'react-icons/bs';
+import { MdContentPasteGo } from 'react-icons/md';
+import { RiHomeSmileLine } from 'react-icons/ri';
 
 const iconStyle = css`
   color: #29a19c;
@@ -14,7 +14,7 @@ const iconStyle = css`
 
 export const NAV_LIST: Array<NavListItemProps> = [
   {
-    category: "logo",
+    category: 'logo',
     icon: (
       <Logo
         css={[
@@ -25,20 +25,20 @@ export const NAV_LIST: Array<NavListItemProps> = [
         ]}
       />
     ),
-    title: "PYGMALIHOME",
-    link: "/",
+    title: 'PYGMALIHOME',
+    link: '/',
   },
   {
-    category: "allNotice",
+    category: 'allNotice',
     icon: <BsClipboardCheck css={iconStyle} />,
-    title: "신청 가능한 전체 공고 보기",
-    link: "/notices",
+    title: '신청 가능한 전체 공고 보기',
+    link: '/notices',
   },
   {
-    category: "postNotice",
+    category: 'postNotice',
     icon: <MdContentPasteGo css={iconStyle} />,
-    title: "지난 공고 모아보기",
-    link: "/notices/past",
+    title: '지난 공고 모아보기',
+    link: '/notices/past',
   },
   // {
   //   category: "information",

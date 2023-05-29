@@ -1,9 +1,9 @@
-import { FC, ReactNode } from "react";
-import FeedCardListLayout from "@/components/Feed/FeedCardListLayout";
-import styled from "@emotion/styled";
-import FeedCard from "@/components/Feed/FeedCard";
-import { css } from "@emotion/react";
-import { FeedCardListProps } from "@/components/Feed/FeedCardList";
+import FeedCard from '@/components/Feed/FeedCard';
+import { FeedCardListProps } from '@/components/Feed/FeedCardList';
+import FeedCardListLayout from '@/components/Feed/FeedCardListLayout';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { FC, ReactNode } from 'react';
 
 const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
   return (
@@ -35,7 +35,7 @@ const CardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
                     startDate={startDate}
                     link={link}
                   />
-                )
+                ),
             )}
           </CardListContainer>
         ) : (

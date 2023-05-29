@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { FC, PropsWithChildren } from "react";
+import styled from '@emotion/styled';
+import { FC, PropsWithChildren } from 'react';
 
 type AsideLayoutProps = PropsWithChildren;
 

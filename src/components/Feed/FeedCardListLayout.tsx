@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 const FeedCardListLayout = styled.div`
   background-color: rgba(225, 225, 225, 0.03);
