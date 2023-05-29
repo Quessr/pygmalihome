@@ -7,6 +7,7 @@ import axios from "axios";
 import CardLayout from "../common/CardLayout";
 import Button from "../common/Button";
 import Input from "../common/Input";
+import styled from "@emotion/styled";
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -19,21 +20,7 @@ const Notification: FC = () => {
 
   return (
     <FeedCardListLayout>
-      <form
-        css={css`
-          min-width: 30rem;
-          width: 100%;
-          display: grid;
-          place-items: center;
-          padding: 30px;
-
-          @media screen and (min-width: 1200px) {
-            width: 50%;
-            margin: 0 auto;
-          }
-        `}
-        onSubmit={onSubmit}
-      >
+      <StyledForm onSubmit={onSubmit}>
         <CardLayout fullWidth>
           <CardHeader
             type="logo"
@@ -50,9 +37,22 @@ const Notification: FC = () => {
             구독하기
           </Button>
         </CardLayout>
-      </form>
+      </StyledForm>
     </FeedCardListLayout>
   );
 };
 
 export default Notification;
+
+const StyledForm = styled.form`
+  min-width: 30rem;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 30px;
+
+  @media screen and (min-width: 1200px) {
+    width: 50%;
+    margin: 0 auto;
+  }
+`;
