@@ -1,8 +1,9 @@
-import { FC, ReactNode } from "react";
-import FeedCardListLayout from "./FeedCardListLayout";
-import styled from "@emotion/styled";
-import FeedCard from "./FeedCard";
-import { css } from "@emotion/react";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { FC, ReactNode } from 'react';
+
+import FeedCard from './FeedCard';
+import FeedCardListLayout from './FeedCardListLayout';
 
 export interface FeedCardProps {
   id?: string;
@@ -51,7 +52,7 @@ const FeedCardList: FC<FeedCardListProps> = ({ title, icon, cardList }) => {
                     startDate={startDate}
                     link={link}
                   />
-                )
+                ),
             )
           ) : (
             <div

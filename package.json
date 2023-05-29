@@ -34,6 +34,8 @@
   },
   "devDependencies": {
     "@svgr/webpack": "^7.0.0",
-    "@types/cheerio": "^0.22.31"
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "@types/cheerio": "^0.22.31",
+    "prettier": "^2.8.8"
   }
 }

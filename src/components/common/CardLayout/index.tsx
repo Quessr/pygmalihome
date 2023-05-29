@@ -1,5 +1,5 @@
-import styled from "@emotion/styled";
-import { FC, PropsWithChildren } from "react";
+import styled from '@emotion/styled';
+import { FC, PropsWithChildren } from 'react';
 
 export interface CardLayoutProps extends PropsWithChildren {
   fullWidth?: boolean;
@@ -12,7 +12,7 @@ const CardLayout: FC<CardLayoutProps> = ({ children, fullWidth }) => {
 export default CardLayout;
 
 const StyledCard = styled.div<CardLayoutProps>`
-  width: ${(props) => (props.fullWidth ? "100%" : "252px")};
+  width: ${(props) => (props.fullWidth ? '100%' : '252px')};
   min-width: 252px;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
