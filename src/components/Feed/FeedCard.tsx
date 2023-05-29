@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import Button from '../common/Button';
 import CardLayout from '../common/CardLayout';
 import { FeedCardProps } from './FeedCardList';
+import FeedCardTitle from './FeedCardTitle';
 
 const FeedCard = ({
   title,
@@ -17,7 +18,8 @@ const FeedCard = ({
       {/* image & title */}
       <CardHeader category={category} type={type} />
       {/* content */}
-      <p>{title}</p>
+      {/* <p>{title}</p> */}
+      <FeedCardTitle title={title ?? ''} />
       {/* subscription date */}
       <span
         css={css`
