@@ -1,5 +1,5 @@
 import Logo from '@/assets/logo.svg';
-import CardHeader from '@/components/common/NoticeCardHeader';
+import CardHeader from '@/components/common/NoticeCard/NoticeCardHeader';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';

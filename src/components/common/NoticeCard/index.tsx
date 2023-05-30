@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 
-import Button from './Button';
-import CardLayout from './CardLayout';
+import Button from '../Button';
+import CardLayout from '../CardLayout';
 import NoticeCardHeader from './NoticeCardHeader';
 import NoticeCardTitle from './NoticeCardTitle';
 

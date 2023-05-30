@@ -4,7 +4,7 @@ import {
   Title,
   CardHeaderContainer as YoutubeCardContainer,
   AgencyImage as YoutubeThumbnail,
-} from '@/components/common/NoticeCardHeader';
+} from '@/components/common/NoticeCard/NoticeCardHeader';
 import { FC, ReactNode } from 'react';
 
 export interface NavListItemProps {

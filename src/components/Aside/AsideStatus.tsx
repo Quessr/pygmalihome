@@ -1,7 +1,7 @@
 import {
   AgencyImage,
   CardHeaderContainer,
-} from '@/components/common/NoticeCardHeader';
+} from '@/components/common/NoticeCard/NoticeCardHeader';
 import { CARD_HEADER_IMAGES } from '@/constants/card-header-image-src';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';

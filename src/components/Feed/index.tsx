@@ -1,9 +1,9 @@
 import { css } from '@emotion/react';
 import { FC } from 'react';
 
-import AlertBellIcon from '../common/AlertBellIcon';
+import AlertBellIcon from '../common/Icon/AlertBellIcon';
+import ShackeBellIcon from '../common/Icon/ShakeBellIcon';
 import { NoticeCardProps } from '../common/NoticeCard';
-import ShackeBellIcon from '../common/ShakeBellIcon';
 import FeedCardList from './FeedCardList';
 import Notification from './Notification';
 
