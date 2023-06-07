@@ -16,6 +16,7 @@
   }
 }
 
+html,
 body {
   color: rgb(var(--foreground-rgb));
   background: #181820;

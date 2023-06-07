@@ -48,7 +48,6 @@ const StyledHeader = styled.div`
   min-height: 76px;
   background-color: #181820;
   border: #181820 1px solid;
-  border-radius: 25px 25px 0 0;
   color: rgba(225, 225, 225, 0.4);
   padding: 16px;
   font-size: 20px;

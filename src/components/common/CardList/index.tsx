@@ -1,3 +1,4 @@
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC, ReactNode } from 'react';
@@ -77,7 +78,7 @@ const CategoryContainer = styled.div`
 
 const CardListContainer = styled.div<CardListProps>`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   justify-items: center;
   gap: 20px;
   padding-bottom: 10px;
@@ -94,5 +95,21 @@ const CardListContainer = styled.div<CardListProps>`
     :hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
+  }
+
+  @media screen and (min-width: ${breakpoints.tablet}px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (min-width: ${breakpoints.laptop}px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (min-width: ${breakpoints.desktop}px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media screen and (min-width: ${breakpoints.desktopL}px) {
+    grid-template-columns: repeat(8, 1fr);
   }
 `;
