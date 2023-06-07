@@ -1,10 +1,8 @@
-import Logo from '@/assets/logo.svg';
 import CardHeader from '@/components/common/NoticeCard/NoticeCardHeader';
 import { breakpoints } from '@/styles/media';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 
 import Button from '../common/Button';
 import CardLayout from '../common/CardLayout';
