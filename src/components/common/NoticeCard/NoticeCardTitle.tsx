@@ -1,3 +1,4 @@
+import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import { FC, useEffect, useRef, useState } from 'react';
 import { Tooltip as ReactTooltip } from 'react-tooltip';
@@ -42,9 +43,17 @@ const NoticeCardTitle: FC<NoticeCardTitleProps> = ({ title }) => {
 export default NoticeCardTitle;
 
 const StyledCardTitle = styled.div`
+  font-size: 16px;
+  line-height: 24px;
   height: 48px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
+  @media screen and (min-width: ${breakpoints.desktopL}px) {
+    font-size: 20px;
+    line-height: 30px;
+    height: 60px;
+  }
 `;

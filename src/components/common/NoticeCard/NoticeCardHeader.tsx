@@ -1,5 +1,6 @@
 import Logo from '@/assets/logo.svg';
 import { CARD_HEADER_IMAGES } from '@/constants/card-header-image-src';
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC } from 'react';
@@ -50,12 +51,15 @@ export const CardHeaderContainer = styled.div`
   display: flex;
   column-gap: 10px;
   align-items: center;
+
+  @media screen and (min-width: ${breakpoints.desktopL}px) {
+    font-size: 18px;
+  }
 `;
 
 export const AgencyImage = styled.img`
   width: 2.5rem;
   height: 2.5rem;
-  /* background-color: skyblue; */
   border-radius: 7.5rem;
 `;
 

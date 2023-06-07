@@ -1,3 +1,4 @@
+import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import { FC, PropsWithChildren } from 'react';
 
@@ -5,13 +6,7 @@ export interface CardLayoutProps extends PropsWithChildren {
   fullWidth?: boolean;
 }
 
-const CardLayout: FC<CardLayoutProps> = ({ children, fullWidth }) => {
-  return <StyledCard fullWidth={fullWidth}>{children}</StyledCard>;
-};
-
-export default CardLayout;
-
-const StyledCard = styled.div<CardLayoutProps>`
+const CardLayout = styled.div<CardLayoutProps>`
   width: ${(props) => (props.fullWidth ? '100%' : '252px')};
   min-width: 252px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -24,4 +19,11 @@ const StyledCard = styled.div<CardLayoutProps>`
   & > div:last-of-type {
     text-align: right;
   }
+
+  @media screen and (min-width: ${breakpoints.desktopL}px) {
+    width: ${(props) => (props.fullWidth ? '100%' : '320px')};
+    min-width: 320px;
+  }
 `;
+
+export default CardLayout;

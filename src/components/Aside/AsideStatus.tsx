@@ -3,7 +3,7 @@ import {
   CardHeaderContainer,
 } from '@/components/common/NoticeCard/NoticeCardHeader';
 import { CARD_HEADER_IMAGES } from '@/constants/card-header-image-src';
-import { css } from '@emotion/react';
+import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import { Baloo_2 } from '@next/font/google';
 import { FC, ReactNode } from 'react';
@@ -40,12 +40,7 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
   return (
     <AsideLayout>
       <StyledAsideHeader>{title}</StyledAsideHeader>
-      <div
-        css={css`
-          display: flex;
-          gap: 14px;
-        `}
-      >
+      <ResposiveRelativeStatus>
         {/* SH status */}
         <CardHeaderContainer>
           <AgencyImage src={CARD_HEADER_IMAGES.SH} />
@@ -68,7 +63,7 @@ const AsideStatus: FC<AsiedeStatusProps> = ({
             <NoNoticeFound />
           )}
         </CardHeaderContainer>
-      </div>
+      </ResposiveRelativeStatus>
     </AsideLayout>
   );
 };
@@ -83,11 +78,25 @@ export const StyledAsideHeader = styled.h4`
 const StatusCount = styled.span`
   font-weight: 500;
   color: #29a19c;
-  font-size: 45px;
+  font-size: 44px;
 `;
 
 const NoNoticeFound = styled(ReactIconsSad)`
   width: 40px;
   height: 40px;
   color: #29a19c;
+`;
+
+const ResposiveRelativeStatus = styled.div`
+  @media screen and (max-width: ${breakpoints.laptop}px) {
+    /* display: none; */
+    & > div > span {
+      font-size: 34px;
+    }
+  }
+
+  @media screen and (min-width: ${breakpoints.laptop}px) {
+    display: flex;
+    gap: 14px;
+  }
 `;

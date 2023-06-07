@@ -1,4 +1,6 @@
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import Button from '../Button';
 import CardLayout from '../CardLayout';
@@ -30,13 +32,7 @@ const NoticeCard = ({
       {/* content */}
       <NoticeCardTitle title={title ?? ''} />
       {/* subscription date */}
-      <span
-        css={css`
-          font-size: 14px;
-        `}
-      >
-        {`청약시작일: ${startDate}`}
-      </span>
+      <StyledStartDate>{`청약시작일: ${startDate}`}</StyledStartDate>
       {/* button */}
       <div>
         <Button>
@@ -50,3 +46,11 @@ const NoticeCard = ({
 };
 
 export default NoticeCard;
+
+const StyledStartDate = styled.span`
+  font-size: 14px;
+
+  @media screen and (min-width: ${breakpoints.desktopL}px) {
+    font-size: 16px;
+  }
+`;

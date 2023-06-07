@@ -68,7 +68,6 @@ const CardListContainer = styled.div`
   gap: 20px;
   padding-bottom: 10px;
   overflow: auto;
-  cursor: pointer;
 
   &::-webkit-scrollbar {
     background-color: transparent;

@@ -3,6 +3,7 @@ import {
   AgencyImage as NavIcon,
   Title,
 } from '@/components/common/NoticeCard/NoticeCardHeader';
+import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import { FC, ReactNode } from 'react';
 
@@ -25,9 +26,21 @@ const NavListItem: FC<NavListItemProps> = ({ icon, title }) => {
 export default NavListItem;
 
 const NavListItemContainer = styled(CardHeaderContainer)`
-  margin: 16px;
+  @media screen and (max-width: ${breakpoints.laptop}px) {
+    margin: 0 12px;
+  }
+
+  @media screen and (min-width: ${breakpoints.laptop}px) {
+    margin: 16px;
+  }
 `;
 
 const NavListTitle = styled(Title)`
-  font-size: 16px;
+  @media screen and (max-width: ${breakpoints.laptop}px) {
+    font-size: 16px;
+  }
+
+  @media screen and (min-width: ${breakpoints.laptop}px) {
+    font-size: 16px;
+  }
 `;

@@ -1,6 +1,8 @@
 import Aside from '@/components/Aside';
 import Nav from '@/components/Nav';
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 import { FC, PropsWithChildren } from 'react';
 
 import Header from '../Header';
@@ -16,7 +18,9 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         min-height: 100vh;
       `}
     >
-      <Nav />
+      <ResponsiveNav>
+        <Nav />
+      </ResponsiveNav>
       <div
         css={css`
           flex-grow: 1;
@@ -46,3 +50,14 @@ const Layout: FC<LayoutProps> = ({ children }) => {
 };
 
 export default Layout;
+
+const ResponsiveNav = styled.div`
+  @media screen and (max-width: ${breakpoints.laptop}px) {
+    display: none;
+  }
+
+  @media screen and (min-width: ${breakpoints.laptop}px) {
+    display: flex;
+    flex-grow: 1;
+  }
+`;
