@@ -15,6 +15,7 @@ const StyledAsideLayout = styled.div`
   border: 1px solid rgba(225, 225, 225, 0.07);
   border-radius: 5px;
   padding: 16px;
+  height: fit-content;
   @media screen and (max-width: ${breakpoints.laptop}px) {
     width: 152px;
   }

@@ -93,10 +93,13 @@ const Aside: FC = () => {
     <div
       className="aside"
       css={css`
-        display: grid;
+        /* display: grid;
         grid-template-rows: 124px 350px;
-        gap: 24px;
+        gap: 24px; */
         margin-left: 28px;
+        & > div + div {
+          margin-top: 24px;
+        }
       `}
     >
       {/* Status */}
