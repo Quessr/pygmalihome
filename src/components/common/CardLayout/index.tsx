@@ -7,8 +7,7 @@ export interface CardLayoutProps extends PropsWithChildren {
 }
 
 const CardLayout = styled.div<CardLayoutProps>`
-  width: ${(props) => (props.fullWidth ? '100%' : '252px')};
-  min-width: 252px;
+  width: 100%;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 5px;
   border: rgba(255, 255, 255, 0.35) 1px solid;
@@ -18,6 +17,11 @@ const CardLayout = styled.div<CardLayoutProps>`
   gap: 12px;
   & > div > button {
     float: right;
+  }
+
+  @media screen and (min-width: ${breakpoints.tablet}px) {
+    width: ${(props) => (props.fullWidth ? '100%' : '252px')};
+    min-width: 252px;
   }
 
   @media screen and (min-width: ${breakpoints.desktopL}px) {
