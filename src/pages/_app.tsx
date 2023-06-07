@@ -1,5 +1,5 @@
 import Layout from '@/components/common/Layout';
-import '@/styles/globals.css';
+import '@/styles/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
