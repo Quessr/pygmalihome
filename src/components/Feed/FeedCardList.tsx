@@ -1,3 +1,4 @@
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC } from 'react';
@@ -64,10 +65,10 @@ const CategoryContainer = styled.div`
 `;
 
 const CardListContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  padding-bottom: 10px;
   overflow: auto;
+  & > div + div {
+    margin: 24px 0;
+  }
 
   &::-webkit-scrollbar {
     background-color: transparent;
@@ -78,6 +79,16 @@ const CardListContainer = styled.div`
     border-radius: 5px;
     :hover {
       background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  @media screen and (min-width: ${breakpoints.tablet}px) {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 10px;
+
+    & > div + div {
+      margin: 0;
     }
   }
 `;

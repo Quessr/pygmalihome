@@ -26,21 +26,19 @@ const NavListItem: FC<NavListItemProps> = ({ icon, title }) => {
 export default NavListItem;
 
 const NavListItemContainer = styled(CardHeaderContainer)`
-  @media screen and (max-width: ${breakpoints.laptop}px) {
-    margin: 0 12px;
-  }
+  display: block;
+  margin: 0 12px;
 
-  @media screen and (min-width: ${breakpoints.laptop}px) {
+  @media screen and (min-width: ${breakpoints.tablet}px) {
+    display: flex;
     margin: 16px;
   }
 `;
 
 const NavListTitle = styled(Title)`
-  @media screen and (max-width: ${breakpoints.laptop}px) {
-    font-size: 16px;
-  }
-
-  @media screen and (min-width: ${breakpoints.laptop}px) {
+  font-size: 12px;
+  justify-content: center;
+  @media screen and (min-width: ${breakpoints.tablet}px) {
     font-size: 16px;
   }
 `;

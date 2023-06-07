@@ -91,6 +91,7 @@ const Aside: FC = () => {
 
   return (
     <div
+      className="aside"
       css={css`
         display: grid;
         grid-template-rows: 124px 350px;

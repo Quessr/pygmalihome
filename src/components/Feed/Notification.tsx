@@ -1,5 +1,6 @@
 import Logo from '@/assets/logo.svg';
 import CardHeader from '@/components/common/NoticeCard/NoticeCardHeader';
+import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import axios from 'axios';
@@ -46,14 +47,14 @@ const Notification: FC = () => {
 export default Notification;
 
 const StyledForm = styled.form`
-  min-width: 30rem;
   width: 100%;
   display: grid;
   place-items: center;
   padding: 30px;
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: ${breakpoints.tablet}px) {
     width: 50%;
     margin: 0 auto;
+    min-width: 30rem;
   }
 `;

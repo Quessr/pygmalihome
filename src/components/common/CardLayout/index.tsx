@@ -15,9 +15,9 @@ const CardLayout = styled.div<CardLayoutProps>`
   padding: 1rem 1rem;
   color: #fff;
   display: grid;
-  gap: 0.75rem;
-  & > div:last-of-type {
-    text-align: right;
+  gap: 12px;
+  & > div > button {
+    float: right;
   }
 
   @media screen and (min-width: ${breakpoints.desktopL}px) {
