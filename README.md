@@ -53,6 +53,8 @@ Start the server
 
 ![](./public/pygmalihome.gif)
 
+![](./public/pygmalihome_responsivef.gif)
+
 ## Related
 
 - [lh](https://apply.lh.or.kr/LH/index.html?Sls#MN::CLCC_MN_0010:)
