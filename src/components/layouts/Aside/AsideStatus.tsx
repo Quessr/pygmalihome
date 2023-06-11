@@ -9,7 +9,7 @@ import { Baloo_2 } from '@next/font/google';
 import { FC, ReactNode } from 'react';
 import { FaRegSadTear as ReactIconsSad } from 'react-icons/fa';
 
-import AsideLayout from './AsideLayout';
+import { AsideLayout } from './AsideLayout';
 
 export interface EachNoticeCountProps {
   type: string;

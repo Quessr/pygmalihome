@@ -1,10 +1,9 @@
-import Logo from '@/assets/logo.svg';
-import { EachYoutubeProps } from '@/components/Aside/AsideYoutube';
 import {
   Title,
   CardHeaderContainer as YoutubeCardContainer,
   AgencyImage as YoutubeThumbnail,
 } from '@/components/common/NoticeCard/NoticeCardHeader';
+import { EachYoutubeProps } from '@/components/layouts/Aside/AsideYoutube';
 import { FC, ReactNode } from 'react';
 
 export interface NavListItemProps {

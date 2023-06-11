@@ -1,9 +1,10 @@
-import NavListItem from '@/components/Nav/NavListItem';
 import { RESPONSIVE_NAV_LIST } from '@/constants/nav-list';
 import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import { East_Sea_Dokdo } from '@next/font/google';
 import Link from 'next/link';
+
+import NavListItem from '../Nav/NavListItem';
 
 const eastSeaDokdo = East_Sea_Dokdo({
   weight: ['400'],

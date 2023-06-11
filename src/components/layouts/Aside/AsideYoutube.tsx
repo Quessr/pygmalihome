@@ -1,10 +1,9 @@
-import CardHeader from '@/components/common/NoticeCard/NoticeCardHeader';
+import SectionBodyListItem from '@/components/common/SectionBodyListItem';
 import styled from '@emotion/styled';
 import { FC } from 'react';
 import { Triangle as Loading } from 'react-loader-spinner';
 
-import SectionBodyListItem from '../common/SectionBodyListItem';
-import AsideLayout from './AsideLayout';
+import { AsideLayout } from './AsideLayout';
 import { StyledAsideHeader } from './AsideStatus';
 
 export interface EachYoutubeProps {

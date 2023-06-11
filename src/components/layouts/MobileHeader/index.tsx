@@ -1,7 +1,5 @@
-import NavListItem from '@/components/Nav/NavListItem';
 import { NAV_LIST, RESPONSIVE_NAV_LIST } from '@/constants/nav-list';
 import { breakpoints } from '@/styles/media';
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { East_Sea_Dokdo } from '@next/font/google';
 import Link from 'next/link';

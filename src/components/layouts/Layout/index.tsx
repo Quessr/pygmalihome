@@ -1,12 +1,12 @@
-import Aside from '@/components/Aside';
-import Nav from '@/components/Nav';
 import { breakpoints } from '@/styles/media';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { FC, PropsWithChildren } from 'react';
 
+import Aside from '../Aside';
 import Header from '../Header';
 import MobileHeader from '../MobileHeader';
+import Nav from '../Nav';
 
 type LayoutProps = PropsWithChildren;
 

@@ -1,4 +1,4 @@
-import Layout from '@/components/common/Layout';
+import Layout from '@/components/layouts/Layout';
 import '@/styles/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { DefaultSeo } from 'next-seo';

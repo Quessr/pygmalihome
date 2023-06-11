@@ -1,9 +1,8 @@
 import Logo from '@/assets/logo.svg';
-import { NavListItemProps } from '@/components/Nav/NavListItem';
+import { NavListItemProps } from '@/components/layouts/Nav/NavListItem';
 import { css } from '@emotion/react';
 import { BsClipboardCheck } from 'react-icons/bs';
 import { MdContentPasteGo } from 'react-icons/md';
-import { RiHomeSmileLine } from 'react-icons/ri';
 
 const iconStyle = css`
   color: #29a19c;
