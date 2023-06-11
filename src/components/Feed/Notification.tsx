@@ -3,11 +3,12 @@ import { breakpoints } from '@/styles/media';
 import styled from '@emotion/styled';
 import axios from 'axios';
 import { FC } from 'react';
+import { toast } from 'react-toastify';
 
 import Button from '../common/Button';
 import CardLayout from '../common/CardLayout';
 import Input from '../common/Input';
-import FeedCardListLayout from '../common/SectionContainer';
+import SectionContainer from '../common/SectionContainer';
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -15,11 +16,21 @@ const Notification: FC = () => {
     const target = e.target as HTMLFormElement;
     const userEmail = target.useremail.value;
 
-    axios.post('/api/notification/subscribe', { email: userEmail });
+    try {
+      await axios.post('/api/notification/subscribe', {
+        email: userEmail,
+      });
+      toast.success('구독신청이 되었습니다.');
+      target.useremail.value = '';
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        toast.warn(error.response?.data.errors.email);
+      }
+    }
   };
 
   return (
-    <FeedCardListLayout>
+    <SectionContainer>
       <StyledForm onSubmit={onSubmit}>
         <CardLayout fullWidth>
           <CardHeader
@@ -38,7 +49,7 @@ const Notification: FC = () => {
           </Button>
         </CardLayout>
       </StyledForm>
-    </FeedCardListLayout>
+    </SectionContainer>
   );
 };
 
