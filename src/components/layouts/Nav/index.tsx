@@ -6,7 +6,7 @@ import NavListItem from './NavListItem';
 
 const Nav = () => {
   return (
-    <NavLayout>
+    <NavLayout id="nav">
       {/* Logo */}
       {NAV_LIST.map(({ category, link, ...props }) => (
         <Link href={link ?? '/'} key={category}>

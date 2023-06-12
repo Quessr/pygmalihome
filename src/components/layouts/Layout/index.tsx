@@ -7,17 +7,14 @@ import Aside from '../Aside';
 import Header from '../Header';
 import MobileHeader from '../MobileHeader';
 import Nav from '../Nav';
-
-// import MobileNav from '../Nav/mobileNav';
+import MobileNav from '../Nav/MobileNav';
 
 type LayoutProps = PropsWithChildren;
 
 const Layout: FC<LayoutProps> = ({ children }) => {
   return (
     <StyledLayout>
-      <ResponsiveNav>
-        <Nav />
-      </ResponsiveNav>
+      <Nav />
       <MobileHeader />
       <div
         css={css`
@@ -26,7 +23,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         `}
       >
         <Header />
-        {/* <MobileNav /> */}
+        <MobileNav />
 
         <div
           css={css`
@@ -62,25 +59,27 @@ const StyledLayout = styled.div`
   min-height: 100vh;
 
   @media screen and (max-width: ${breakpoints.tablet}px) {
-    & .aside {
+    .aside {
+      display: none;
+    }
+
+    .header {
       display: none;
     }
   }
 
   @media screen and (min-width: ${breakpoints.tablet}px) {
-    & .mobileHeader {
+    .mobileHeader {
+      display: none;
+    }
+
+    #mobileNav {
       display: none;
     }
   }
-`;
-
-const ResponsiveNav = styled.div`
   @media screen and (max-width: ${breakpoints.laptop}px) {
-    display: none;
-  }
-
-  @media screen and (min-width: ${breakpoints.laptop}px) {
-    display: flex;
-    flex-grow: 1;
+    #nav {
+      display: none;
+    }
   }
 `;
