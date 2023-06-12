@@ -7,6 +7,7 @@ import Aside from '../Aside';
 import Header from '../Header';
 import MobileHeader from '../MobileHeader';
 import Nav from '../Nav';
+import MobileNav from '../Nav/mobileNav';
 
 type LayoutProps = PropsWithChildren;
 
@@ -24,6 +25,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
         `}
       >
         <Header />
+        <MobileNav />
 
         <div
           css={css`

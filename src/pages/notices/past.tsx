@@ -29,7 +29,6 @@ export async function getStaticProps() {
 const PastNoticePage = ({
   pastNotice,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  console.log('pastNotice', pastNotice);
   return (
     <div>
       <NextSeo title="지난 공고 모아보기" />
