@@ -1,4 +1,4 @@
-import SectionBodyListItem from '@/components/common/SectionBodyListItem';
+import YoutubeChannelList from '@/components/common/YoutubeChannelList';
 import styled from '@emotion/styled';
 import { FC } from 'react';
 import { Triangle as Loading } from 'react-loader-spinner';
@@ -32,7 +32,7 @@ const AsideYoutube: FC<AsideYoutubeProps> = ({ youtubeList, isLoading }) => {
         <StyledAsideYoutubeBody>
           {youtubeList &&
             youtubeList.map(({ id, ...rest }) => (
-              <SectionBodyListItem key={id} {...rest} />
+              <YoutubeChannelList key={id} {...rest} />
             ))}
         </StyledAsideYoutubeBody>
       )}

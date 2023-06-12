@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { FC, ReactNode } from 'react';
 
 import NoticeCard, { NoticeCardProps } from '../NoticeCard';
-import SectionContainer from '../SectionContainer';
+import Section from '../Section';
 
 export interface CardListProps {
   title?: string;
@@ -14,7 +14,7 @@ export interface CardListProps {
 
 const CardList: FC<CardListProps> = ({ title, icon, cardList }) => {
   return (
-    <SectionContainer>
+    <Section>
       {/* title */}
       {title && (
         <CategoryContainer>
@@ -56,7 +56,7 @@ const CardList: FC<CardListProps> = ({ title, icon, cardList }) => {
           </div>
         )}
       </div>
-    </SectionContainer>
+    </Section>
   );
 };
 

@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 import Button from '../common/Button';
 import CardLayout from '../common/CardLayout';
 import Input from '../common/Input';
-import SectionContainer from '../common/SectionContainer';
+import Section from '../common/Section';
 
 const Notification: FC = () => {
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -30,7 +30,7 @@ const Notification: FC = () => {
   };
 
   return (
-    <SectionContainer>
+    <Section>
       <StyledForm onSubmit={onSubmit}>
         <CardLayout fullWidth>
           <CardHeader
@@ -49,7 +49,7 @@ const Notification: FC = () => {
           </Button>
         </CardLayout>
       </StyledForm>
-    </SectionContainer>
+    </Section>
   );
 };
 

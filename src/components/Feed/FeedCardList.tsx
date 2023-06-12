@@ -5,11 +5,11 @@ import { FC } from 'react';
 
 import { CardListProps } from '../common/CardList';
 import NoticeCard from '../common/NoticeCard';
-import SectionContainer from '../common/SectionContainer';
+import Section from '../common/Section';
 
 const FeedCardList: FC<CardListProps> = ({ title, icon, cardList }) => {
   return (
-    <SectionContainer>
+    <Section>
       {/* title */}
       {title && (
         <CategoryContainer>
@@ -50,7 +50,7 @@ const FeedCardList: FC<CardListProps> = ({ title, icon, cardList }) => {
           )}
         </CardListContainer>
       </div>
-    </SectionContainer>
+    </Section>
   );
 };
 
